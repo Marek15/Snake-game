@@ -15,7 +15,7 @@ public class Snake {
         int y = rn.nextInt(9) +1;
 
         this.head = new Point(x, y);
-        this.body.add(new Point(x, y+1));
+        this.body.add(new Point(x, y-1));
     }
 
     public Point getHead() {
