@@ -15,10 +15,12 @@ public class Controller implements Initializable {
     private int COLUMNS = 15;
     private int SQUARE_SIZE = 40;
 
-    private GraphicsContext gc;
+    public GraphicsContext gc;
 
 
     private Snake snake;
+    private Barrier barriers;
+
 
 
     @FXML
@@ -28,24 +30,30 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = background.getGraphicsContext2D();
 
+
         snake = new Snake();
-        drawBackground(gc);
+
+        barriers = new Barrier(3, snake);
+
+
+        drawBackground();
+
+
+
     }
 
 
-    private void drawBackground(GraphicsContext gc){
+    private void drawBackground(){
+
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
-                if (snake.getTail().getX() == i && snake.getTail().getY() == j){
-                    gc.setFill(Color.web("ffffff"));
-                }
-                else if(snake.getHead().getX() == i && snake.getHead().getY() == j){
+                if(snake.getHead().getX() == i && snake.getHead().getY() == j){
                     gc.setFill(Color.web("aaaaaa"));
                 }
                 else if (snake.getBody().get(0).getX() == i && snake.getBody().get(0).getY() == j){
                     gc.setFill(Color.web("f4f4f4"));
                 }
-                else if (i == 10 && j == 10 || i == 4 && j == 2 || i == 8 && j == 5){
+                else if (!barriers.checkIfIsSame(i,j)){
                     gc.setFill(Color.web("fc052a"));
                 }
                 else if ((i+j) % 2 == 0){
@@ -57,6 +65,7 @@ public class Controller implements Initializable {
                 gc.fillRect(i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
             }
         }
+
     }
 
 }

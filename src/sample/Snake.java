@@ -1,17 +1,21 @@
 package sample;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Snake {
 
     private Point head;
-    private Point tail;
     private ArrayList<Point> body = new ArrayList<>();
 
     public Snake() {
-        this.head = new Point(10, 5);
-        this.tail = new Point(10, 3);
-        this.body.add(new Point(10, 4));
+        Random rn = new Random();
+
+        int x = rn.nextInt(15);
+        int y = rn.nextInt(10);
+
+        this.head = new Point(x, y);
+        this.body.add(new Point(x, y+1));
     }
 
     public Point getHead() {
@@ -20,14 +24,6 @@ public class Snake {
 
     public void setHead(Point head) {
         this.head = head;
-    }
-
-    public Point getTail() {
-        return tail;
-    }
-
-    public void setTail(Point tail) {
-        this.tail = tail;
     }
 
     public ArrayList<Point> getBody() {
