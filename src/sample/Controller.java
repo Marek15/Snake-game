@@ -30,10 +30,12 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = background.getGraphicsContext2D();
 
-        barriers = new Barrier(3);
-
 
         snake = new Snake();
+
+        barriers = new Barrier(3, snake);
+
+
         drawBackground();
 
 
@@ -45,10 +47,7 @@ public class Controller implements Initializable {
 
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
-                if (snake.getTail().getX() == i && snake.getTail().getY() == j){
-                    gc.setFill(Color.web("ffffff"));
-                }
-                else if(snake.getHead().getX() == i && snake.getHead().getY() == j){
+                if(snake.getHead().getX() == i && snake.getHead().getY() == j){
                     gc.setFill(Color.web("aaaaaa"));
                 }
                 else if (snake.getBody().get(0).getX() == i && snake.getBody().get(0).getY() == j){
