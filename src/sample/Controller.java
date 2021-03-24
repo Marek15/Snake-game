@@ -2,8 +2,10 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
@@ -21,6 +23,7 @@ public class Controller implements Initializable {
     private Snake snake;
     private Barrier barriers;
 
+    private Scene mainScene;
 
 
     @FXML
@@ -37,8 +40,6 @@ public class Controller implements Initializable {
 
 
         drawBackground();
-
-
 
     }
 
@@ -66,6 +67,12 @@ public class Controller implements Initializable {
             }
         }
 
+    }
+
+
+
+    public void changeDirection(KeyEvent keyEvent){
+        System.out.println(keyEvent.getCode());
     }
 
 }
