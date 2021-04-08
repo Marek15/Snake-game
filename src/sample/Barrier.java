@@ -17,8 +17,11 @@ public class Barrier {
             else i--;
         }
     }
-    
-    
+
+    public ArrayList<Point> getBarriers() {
+        return barriers;
+    }
+
     public boolean checkIfIsSame(int x, int y){
         for (Point barrier: barriers) {
             if (barrier.getX() == x && barrier.getY() == y) return false;
@@ -34,5 +37,6 @@ public class Barrier {
         }
         return true;
     }
+
 
 }
