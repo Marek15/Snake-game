@@ -7,12 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -33,6 +35,9 @@ public class Controller implements Initializable {
 
     private int currentDirection = DOWN;
 
+    private Point food;
+    private Random random = new Random();
+
 
     @FXML
     Canvas background;
@@ -43,6 +48,8 @@ public class Controller implements Initializable {
 
         snake = new Snake();
         barriers = new Barrier(3, snake);
+
+        generateFood();
 
         drawBackground();
         drawSnake();
@@ -77,24 +84,49 @@ public class Controller implements Initializable {
         for (Point bodyPoint: snake.getBody()) gc.fillRoundRect(bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE -1, SQUARE_SIZE -1, 20, 20);
     }
 
+    public void drawFood(){
+        gc.drawImage(new Image("/img/watermelon.png"), food.getX() * SQUARE_SIZE, food.getY() * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+    }
+
+
+    public void generateFood(){
+        int foodX, foodY;
+        start:
+        while (true){
+            foodX = random.nextInt(15);
+            foodY = random.nextInt(15);
+
+            if (snake.getHead().getX() == foodX && snake.getHead().getY() == foodY) continue;
+
+            for (Point barrier: barriers.getBarriers()) {
+                if (barrier.getX() == foodX && barrier.getY() == foodY) continue start;
+            }
+
+            for (Point snakeBody: snake.getBody()) {
+                if (snakeBody.getY() == foodY && snakeBody.getX() == foodX) continue start;
+            }
+            break;
+        }
+        food = new Point(foodX, foodY);
+    }
+
+
     private void updateScene(GraphicsContext gc) {
 
         move();
 
         drawBackground();
+        drawFood();
         drawSnake();
     }
 
     private void move(){
 
-        // end program if snake head hit barrier
-        for (Point barrier: barriers.getBarriers()) {
-            if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY()) System.exit(0);
-        }
-
         // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
         snake.getBody().add(0,new Point(snake.getHead().getX(), snake.getHead().getY()));
-        snake.getBody().remove(snake.getBody().size() -1);
+
+        if (snake.getHead().getX() == food.getX() && snake.getHead().getY() == food.getY()) generateFood();
+        else snake.getBody().remove(snake.getBody().size() -1);
 
 
         switch (currentDirection) {
@@ -106,6 +138,11 @@ public class Controller implements Initializable {
 
         // if snake goes out of play field, end game
         if (snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14) System.exit(0);
+
+        // end program if snake head hit barrier
+        for (Point barrier: barriers.getBarriers()) {
+            if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY()) System.exit(0);
+        }
 
     }
 

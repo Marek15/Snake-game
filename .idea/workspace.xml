@@ -21,8 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Barrier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Barrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/Barrier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +224,9 @@
       <workItem from="1616664909659" duration="1168000" />
       <workItem from="1617871659498" duration="103000" />
       <workItem from="1617874982728" duration="470000" />
-      <workItem from="1617875555046" duration="525000" />
+      <workItem from="1617875555046" duration="1292000" />
+      <workItem from="1618400834124" duration="3994000" />
+      <workItem from="1618417406334" duration="1030000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1615886952601</created>
@@ -311,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616621216973</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ext process if snake hit out of ground or hit barrier">
+      <created>1617876162898</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617876162898</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +349,8 @@
     <MESSAGE value="random generate snake" />
     <MESSAGE value="sending changeDirection to controller from Main" />
     <MESSAGE value="move working" />
-    <option name="LAST_COMMIT_MESSAGE" value="move working" />
+    <MESSAGE value="ext process if snake hit out of ground or hit barrier" />
+    <option name="LAST_COMMIT_MESSAGE" value="ext process if snake hit out of ground or hit barrier" />
   </component>
   <component name="WindowStateProjectService">
     <state x="707" y="420" key="#Updates" timestamp="1616528372608">
@@ -368,30 +377,30 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="636" y="300" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1615886931552" />
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1617875841390">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom" timestamp="1618418241084">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1617875841390" />
-    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1617875841390">
+    <state width="1874" height="277" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1618418241084" />
+    <state width="1874" height="277" key="GridCell.Tab.0.center" timestamp="1618418241081">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1617875841390" />
-    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1617875841389">
+    <state width="1874" height="277" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1618418241081" />
+    <state width="1874" height="277" key="GridCell.Tab.0.left" timestamp="1618418241081">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1617875841389" />
-    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1617875841390">
+    <state width="1874" height="277" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1618418241081" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right" timestamp="1618418241081">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1617875841390" />
+    <state width="1874" height="277" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1618418241081" />
     <state x="444" y="134" key="SettingsEditor" timestamp="1615980921338">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="444" y="134" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1615980921338" />
-    <state x="556" y="293" key="Vcs.Push.Dialog.v2" timestamp="1616621224614">
+    <state x="556" y="293" key="Vcs.Push.Dialog.v2" timestamp="1617876168795">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state x="556" y="293" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1616621224614" />
+    <state x="556" y="293" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1617876168795" />
     <state x="764" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615974038185">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
