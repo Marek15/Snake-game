@@ -54,6 +54,7 @@ public class Controller implements Initializable {
         drawBackground();
         drawSnake();
 
+        // loop  for updating scene
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> updateScene(gc)));
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
@@ -64,6 +65,7 @@ public class Controller implements Initializable {
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLUMNS; j++) {
 
+                // check if it is barrier
                 if (!barriers.checkIfIsSame(i, j)) gc.setFill(Color.web("fc052a"));
 
                 else if ((i + j) % 2 == 0) gc.setFill(Color.web("282554"));
@@ -90,6 +92,8 @@ public class Controller implements Initializable {
 
 
     public void generateFood(){
+
+        // we generate random x and y , if it is same as snake head or body or barrier we generate it again
         int foodX, foodY;
         start:
         while (true){
@@ -125,6 +129,7 @@ public class Controller implements Initializable {
         // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
         snake.getBody().add(0,new Point(snake.getHead().getX(), snake.getHead().getY()));
 
+        // if snake eats food we don't remove last part of snake
         if (snake.getHead().getX() == food.getX() && snake.getHead().getY() == food.getY()) generateFood();
         else snake.getBody().remove(snake.getBody().size() -1);
 
