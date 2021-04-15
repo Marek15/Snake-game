@@ -16,6 +16,7 @@ public class Snake {
 
         this.head = new Point(x, y);
         this.body.add(new Point(x, y-1));
+        this.body.add(new Point(x, y-2));
     }
 
     public Point getHead() {
