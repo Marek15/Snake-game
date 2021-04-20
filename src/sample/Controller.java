@@ -51,6 +51,7 @@ public class Controller implements Initializable {
         generateFood();
 
         drawBackground();
+        drawFood();
         drawSnake();
 
         Timer timer = new Timer();
