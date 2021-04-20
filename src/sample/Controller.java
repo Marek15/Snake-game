@@ -14,8 +14,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Controller implements Initializable {
 
@@ -52,12 +51,21 @@ public class Controller implements Initializable {
         generateFood();
 
         drawBackground();
+        drawFood();
         drawSnake();
 
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                updateScene(gc);
+            }
+        }, 5000, 200);
+
         // loop  for updating scene
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> updateScene(gc)));
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
+//        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> updateScene(gc)));
+//        timeline.setCycleCount(Animation.INDEFINITE);
+//        timeline.play();
     }
 
 
@@ -139,6 +147,15 @@ public class Controller implements Initializable {
             case LEFT -> snake.getHead().setX(snake.getHead().getX() - 1);
             case UP -> snake.getHead().setY(snake.getHead().getY() - 1);
             case DOWN -> snake.getHead().setY(snake.getHead().getY() + 1);
+        }
+
+        boolean tr = true;
+        int iterator = snake.getBody().size();
+        for (int i = 0; i < iterator; i++) {
+
+            if (tr && snake.getHead().getX() == snake.getBody().get(i).getX() && snake.getHead().getY() == snake.getBody().get(i).getY()) tr = false;
+            if (!tr) snake.getBody().remove(snake.getBody().size() -1);
+
         }
 
         // if snake goes out of play field, end game
