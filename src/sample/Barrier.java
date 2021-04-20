@@ -8,8 +8,8 @@ public class Barrier {
     private final ArrayList<Point> barriers = new ArrayList<>();
 
     public Barrier(int countOfBarriers, Snake snake) {
+        Random rn = new Random();
         for (int i = 0; i < countOfBarriers ; i++) {
-            Random rn = new Random();
             int x = rn.nextInt(15);
             int y = rn.nextInt(15);
 
