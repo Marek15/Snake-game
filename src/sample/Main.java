@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
+import java.util.Timer;
+
 public class Main extends Application {
 
     @Override
@@ -18,6 +20,7 @@ public class Main extends Application {
         primaryStage.setTitle("Snake");
         primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.show();
+
 
         primaryStage.getScene().setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
