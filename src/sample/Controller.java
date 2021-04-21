@@ -1,20 +1,21 @@
 package sample;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
+import javafx.scene.text.Font;
 
 import java.net.URL;
 import java.util.*;
+import java.util.Timer;
 
 public class Controller implements Initializable {
 
@@ -28,37 +29,116 @@ public class Controller implements Initializable {
     private int SQUARE_SIZE = 40;
 
     public GraphicsContext gc;
+    public GraphicsContext startMenuContext;
 
     private Snake snake;
     private Barrier barriers;
 
-    private int currentDirection = DOWN;
+    private int currentDirection;
 
     private Point food;
     private Random random = new Random();
 
+    private enum STATE {
+        STARTMENU,
+        GAME,
+        GAMEOVER
+    };
+
+
+    private STATE State = STATE.STARTMENU;
+
+//    StartMenu startMenu;
 
     @FXML
     Canvas background;
+    @FXML
+    Canvas menu;
+    @FXML
+    VBox mainMenuGroup;
+    @FXML
+    VBox gameOverMenuGroup;
+
+    @FXML
+    Button playBtn;
+    @FXML
+    Button scoreBtn;
+    @FXML
+    Button quitBtn;
+    @FXML
+    Button restartBtn;
+    @FXML
+    Button mainMenuBtn;
+    @FXML
+    Button quitBtn1;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = background.getGraphicsContext2D();
+//        startMenu = new StartMenu();
+        startMenuContext = menu.getGraphicsContext2D();
 
-        snake = new Snake();
-        barriers = new Barrier(3, snake);
+        Font fnt0 = new Font("arial", 70);
+        Font fnt1 = new Font("arial", 30);
 
-        generateFood();
+        startMenuContext.setFill(Color.WHITE);
+        startMenuContext.setGlobalBlendMode(BlendMode.MULTIPLY);
+        startMenuContext.setGlobalAlpha(.8);
+        startMenuContext.fillRect(0, 0, 600, 600);
 
-        drawBackground();
-        drawFood();
-        drawSnake();
+
+        gameOverMenuGroup.setVisible(false);
+        playBtn.setFont(fnt1);
+        scoreBtn.setFont(fnt1);
+        quitBtn.setFont(fnt1);
+        restartBtn.setFont(fnt1);
+        mainMenuBtn.setFont(fnt1);
+        quitBtn1.setFont(fnt1);
+
+        playBtn.setOnMouseClicked( mouseEvent ->  {
+            State = STATE.GAME;
+        });
+
+        restartBtn.setOnMouseClicked( mouseEvent ->  {
+            State = STATE.GAME;
+
+            initializeGame();
+        });
+        mainMenuBtn.setOnMouseClicked( mouseEvent ->  {
+            State = STATE.STARTMENU;
+            initializeGame();
+        });
+
+        quitBtn.setOnMouseClicked( mouseEvent -> System.exit(0));
+        quitBtn1.setOnMouseClicked( mouseEvent -> System.exit(0));
+
+
+        initializeGame();
+
+
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                updateScene(gc);
+                if (State == STATE.GAME) {
+                    menu.setVisible(false);
+                    mainMenuGroup.setVisible(false);
+                    gameOverMenuGroup.setVisible(false);
+                    updateScene(gc);
+                }
+                else if (State == STATE.STARTMENU) {
+                    menu.setVisible(true);
+                    mainMenuGroup.setVisible(true);
+                    gameOverMenuGroup.setVisible(false);
+                }
+                else {
+                    menu.setVisible(true);
+                    mainMenuGroup.setVisible(false);
+                    gameOverMenuGroup.setVisible(true);
+                }
             }
         }, 2000, 200);
 
@@ -66,6 +146,18 @@ public class Controller implements Initializable {
 //        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> updateScene(gc)));
 //        timeline.setCycleCount(Animation.INDEFINITE);
 //        timeline.play();
+    }
+
+    private void initializeGame(){
+        snake = new Snake();
+        currentDirection = DOWN;
+        barriers = new Barrier(3, snake);
+
+        generateFood();
+
+        drawBackground();
+        drawFood();
+        drawSnake();
     }
 
 
@@ -209,11 +301,11 @@ public class Controller implements Initializable {
 
 
         // if snake goes out of play field, end game
-        if (snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14) System.exit(0);
+        if (snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14) State = STATE.GAMEOVER;
 
         // end program if snake head hit barrier
         for (Point barrier: barriers.getBarriers()) {
-            if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY()) System.exit(0);
+            if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY()) State = STATE.GAMEOVER;
         }
 
     }
@@ -225,18 +317,17 @@ public class Controller implements Initializable {
 
     public void changeDirection(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
+//        if (State == STATE.GAME) {
         if (code == KeyCode.RIGHT) {
             if (currentDirection != LEFT) currentDirection = RIGHT;
-        }
-        else if (code == KeyCode.LEFT) {
+        } else if (code == KeyCode.LEFT) {
             if (currentDirection != RIGHT) currentDirection = LEFT;
-        }
-        else if (code == KeyCode.UP) {
+        } else if (code == KeyCode.UP) {
             if (currentDirection != DOWN) currentDirection = UP;
-        }
-        else if (code == KeyCode.DOWN) {
+        } else if (code == KeyCode.DOWN) {
             if (currentDirection != UP) currentDirection = DOWN;
         }
+    // }
     }
 
 }
