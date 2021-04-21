@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final-OPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Final-OPG.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/sample.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,14 +114,23 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -151,7 +166,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="Final-OPG" />
-      <option name="VM_PARAMETERS" value="--module-path /usr/lib/jvm/javafx-sdk-11.0.2/lib --add-modules=javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="VM_PARAMETERS" value="--module-path D:\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib --add-modules=javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -166,6 +181,17 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -233,8 +259,8 @@
       <workItem from="1618849843066" duration="104000" />
       <workItem from="1618851357641" duration="596000" />
       <workItem from="1618906246593" duration="5912000" />
-      <workItem from="1618949967800" duration="2692000" />
-      <workItem from="1618999032260" duration="363000" />
+      <workItem from="1618949967800" duration="2160000" />
+      <workItem from="1619023239529" duration="10893000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1615886952601</created>
@@ -362,14 +388,7 @@
       <option name="project" value="LOCAL" />
       <updated>1618949991271</updated>
     </task>
-    <task id="LOCAL-00019" summary="changed move system and drawing system of game">
-      <created>1618952245893</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1618952245893</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,81 +424,6 @@
     <MESSAGE value="changed timeline to timer and maked delay" />
     <MESSAGE value="barriers generatin changed" />
     <MESSAGE value="starting making on change move funtion" />
-    <MESSAGE value="changed move system and drawing system of game" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed move system and drawing system of game" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="707" y="420" key="#Updates" timestamp="1616528372608">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="707" y="420" key="#Updates/0.36.1920.1044@0.36.1920.1044" timestamp="1616528372608" />
-    <state x="419" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615978943509">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="419" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1615978943509" />
-    <state x="655" y="208" width="1100" height="700" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1615886626888">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="655" y="208" width="1100" height="700" key="#com.intellij.ide.macro.MacrosDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1615886626888" />
-    <state x="769" y="264" width="382" height="594" key="#com.intellij.ide.util.MemberChooser" timestamp="1617875755456">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="769" y="264" width="382" height="594" key="#com.intellij.ide.util.MemberChooser/0.36.1920.1044@0.36.1920.1044" timestamp="1617875755456" />
-    <state x="573" y="36" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1615983293769">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="573" y="36" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1615983293769" />
-    <state x="636" y="300" key="FileChooserDialogImpl" timestamp="1615886931552">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="636" y="300" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1615886931552" />
-    <state width="1874" height="126" key="GridCell.Tab.0.bottom" timestamp="1618952659832">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="126" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1618952659832" />
-    <state width="1874" height="126" key="GridCell.Tab.0.center" timestamp="1618952659832">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="126" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1618952659832" />
-    <state width="1874" height="126" key="GridCell.Tab.0.left" timestamp="1618952659831">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="126" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1618952659831" />
-    <state width="1874" height="126" key="GridCell.Tab.0.right" timestamp="1618952659832">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="126" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1618952659832" />
-    <state width="1874" height="341" key="GridCell.Tab.1.bottom" timestamp="1618845182782">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="341" key="GridCell.Tab.1.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1618845182782" />
-    <state width="1874" height="341" key="GridCell.Tab.1.center" timestamp="1618845182781">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="341" key="GridCell.Tab.1.center/0.36.1920.1044@0.36.1920.1044" timestamp="1618845182781" />
-    <state width="1874" height="341" key="GridCell.Tab.1.left" timestamp="1618845182780">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="341" key="GridCell.Tab.1.left/0.36.1920.1044@0.36.1920.1044" timestamp="1618845182780" />
-    <state width="1874" height="341" key="GridCell.Tab.1.right" timestamp="1618845182781">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state width="1874" height="341" key="GridCell.Tab.1.right/0.36.1920.1044@0.36.1920.1044" timestamp="1618845182781" />
-    <state x="444" y="134" key="SettingsEditor" timestamp="1615980921338">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="444" y="134" key="SettingsEditor/0.36.1920.1044@0.36.1920.1044" timestamp="1615980921338" />
-    <state x="556" y="293" width="808" height="530" key="Vcs.Push.Dialog.v2" timestamp="1618952612393">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="556" y="293" width="808" height="530" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1618952612393" />
-    <state x="764" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615974038185">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="764" y="472" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.36.1920.1044@0.36.1920.1044" timestamp="1615974038185" />
-    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup" timestamp="1616605390491">
-      <screen x="0" y="36" width="1920" height="1044" />
-    </state>
-    <state x="623" y="266" width="672" height="678" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1616605390491" />
+    <option name="LAST_COMMIT_MESSAGE" value="starting making on change move funtion" />
   </component>
 </project>
