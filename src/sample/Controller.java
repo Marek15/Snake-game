@@ -152,16 +152,7 @@ public class Controller implements Initializable {
         }
         else {
 
-            int xe = snake.getBody().get(snake.getBody().size() - 1).getX();
-            int ye = snake.getBody().get(snake.getBody().size() - 1).getY();
-
-
-            if ((xe + ye) % 2 == 0) gc.setFill(Color.web("282554"));
-
-            else gc.setFill(Color.web("504aa5"));
-
-            gc.fillRect(xe * SQUARE_SIZE, ye * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
-
+            fillGroundByColor();
 
             snake.getBody().remove(snake.getBody().size() -1);
 
@@ -175,9 +166,6 @@ public class Controller implements Initializable {
             case DOWN -> snake.getHead().setY(snake.getHead().getY() + 1);
         }
 
-//        gc.setFill(Color.web("AAAAAA"));
-//        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE  -1, SQUARE_SIZE -1,50,50);
-
 
         //snake eats some part of him
         boolean tr = true;
@@ -187,19 +175,10 @@ public class Controller implements Initializable {
             if (tr && snake.getHead().getX() == snake.getBody().get(i).getX() && snake.getHead().getY() == snake.getBody().get(i).getY()) tr = false;
             if (!tr) {
 
-                int xe = snake.getBody().get(snake.getBody().size() - 1).getX();
-                int ye = snake.getBody().get(snake.getBody().size() - 1).getY();
-
-
-                if ((xe + ye) % 2 == 0) gc.setFill(Color.web("282554"));
-
-                else gc.setFill(Color.web("504aa5"));
-
-                gc.fillRect(xe * SQUARE_SIZE, ye * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+                fillGroundByColor();
 
                 snake.getBody().remove(snake.getBody().size() -1);
             }
-
         }
 
 
@@ -216,6 +195,18 @@ public class Controller implements Initializable {
             if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY()) System.exit(0);
         }
 
+    }
+
+
+    public void fillGroundByColor(){
+        int x = snake.getBody().get(snake.getBody().size() - 1).getX();
+        int y = snake.getBody().get(snake.getBody().size() - 1).getY();
+
+        if ((x + y) % 2 == 0) gc.setFill(Color.web("282554"));
+
+        else gc.setFill(Color.web("504aa5"));
+
+        gc.fillRect(x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
     }
 
 
