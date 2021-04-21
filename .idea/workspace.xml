@@ -26,10 +26,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final-OPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Final-OPG.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
@@ -393,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618949991271</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="cleaned code">
+      <created>1619044141324</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1619044141324</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +470,8 @@
     <MESSAGE value="changed timeline to timer and maked delay" />
     <MESSAGE value="barriers generatin changed" />
     <MESSAGE value="starting making on change move funtion" />
-    <option name="LAST_COMMIT_MESSAGE" value="starting making on change move funtion" />
+    <MESSAGE value="cleaned code" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="419" y="215" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1619042920529">
@@ -481,22 +486,22 @@
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
     <state x="645" y="365" key="FileChooserDialogImpl/0.36.1920.1044@0.36.1920.1044" timestamp="1619042813565" />
-    <state width="1874" height="98" key="GridCell.Tab.0.bottom" timestamp="1619043868685">
+    <state width="1874" height="98" key="GridCell.Tab.0.bottom" timestamp="1619044991810">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="98" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1619043868685" />
-    <state width="1874" height="98" key="GridCell.Tab.0.center" timestamp="1619043868684">
+    <state width="1874" height="98" key="GridCell.Tab.0.bottom/0.36.1920.1044@0.36.1920.1044" timestamp="1619044991810" />
+    <state width="1874" height="98" key="GridCell.Tab.0.center" timestamp="1619044991808">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="98" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1619043868684" />
-    <state width="1874" height="98" key="GridCell.Tab.0.left" timestamp="1619043868684">
+    <state width="1874" height="98" key="GridCell.Tab.0.center/0.36.1920.1044@0.36.1920.1044" timestamp="1619044991808" />
+    <state width="1874" height="98" key="GridCell.Tab.0.left" timestamp="1619044991807">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="98" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1619043868684" />
-    <state width="1874" height="98" key="GridCell.Tab.0.right" timestamp="1619043868685">
+    <state width="1874" height="98" key="GridCell.Tab.0.left/0.36.1920.1044@0.36.1920.1044" timestamp="1619044991807" />
+    <state width="1874" height="98" key="GridCell.Tab.0.right" timestamp="1619044991809">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>
-    <state width="1874" height="98" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1619043868685" />
+    <state width="1874" height="98" key="GridCell.Tab.0.right/0.36.1920.1044@0.36.1920.1044" timestamp="1619044991809" />
     <state x="188" y="124" key="MergeDialog" timestamp="1619042731033">
       <screen x="0" y="36" width="1920" height="1044" />
     </state>

@@ -290,18 +290,17 @@ public class Controller implements Initializable {
         KeyCode code = keyEvent.getCode();
 
         if (code == KeyCode.RIGHT) {
-            if (currentDirection != LEFT) currentDirection = RIGHT;
+            if (currentDirection != LEFT && !(snake.getHead().getX() + 1 == snake.getBody().get(0).getX())) currentDirection = RIGHT;
         }
         else if (code == KeyCode.LEFT) {
-            if (currentDirection != RIGHT) currentDirection = LEFT;
+            if (currentDirection != RIGHT && !(snake.getHead().getX() - 1 == snake.getBody().get(0).getX())) currentDirection = LEFT;
         }
         else if (code == KeyCode.UP) {
-            if (currentDirection != DOWN) currentDirection = UP;
+            if (currentDirection != DOWN && !(snake.getHead().getY() -1 == snake.getBody().get(0).getY())) currentDirection = UP;
         }
         else if (code == KeyCode.DOWN) {
-            if (currentDirection != UP) currentDirection = DOWN;
+            if (currentDirection != UP && !(snake.getHead().getY() +1 == snake.getBody().get(0).getY())) currentDirection = DOWN;
         }
-        // }
     }
 
 }
