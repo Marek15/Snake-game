@@ -1,6 +1,4 @@
 package main.controllers;
-
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +19,7 @@ public class MenuController {
     @FXML
     Label gameOverScoreLabel;
     @FXML
-    Slider diffcultySlider;
+    Slider difficultySlider;
 
     private Stage window;
     private Parent root;
@@ -48,8 +45,8 @@ public class MenuController {
 
         window = ( Stage ) ( ( Node ) event.getSource() ).getScene().getWindow();
 
-        if ( diffcultySlider != null )
-            difficulty = ( int ) diffcultySlider.getValue() - 1;
+        if ( difficultySlider != null )
+            difficulty = ( int ) difficultySlider.getValue() - 1;
 
         GameController gameController = new GameController( window, difficulty );
 
@@ -60,12 +57,7 @@ public class MenuController {
         window.setScene( new Scene( root ) );
         window.show();
 
-        window.getScene().setOnKeyPressed( new EventHandler<KeyEvent>() {
-            @Override
-            public void handle( KeyEvent keyEvent ) {
-                gameController.changeDirection( keyEvent );
-            }
-        } );
+        window.getScene().setOnKeyPressed( gameController::changeDirection );
     }
 
     public void switchToMainMenu( javafx.event.ActionEvent event ) throws IOException {
