@@ -43,7 +43,9 @@ public class Controller implements Initializable {
         STARTMENU,
         GAME,
         GAMEOVER
-    };
+    }
+
+    ;
 
 
     private STATE State = STATE.STARTMENU;
@@ -73,7 +75,6 @@ public class Controller implements Initializable {
     Button quitBtn1;
 
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gc = background.getGraphicsContext2D();
@@ -97,26 +98,25 @@ public class Controller implements Initializable {
         mainMenuBtn.setFont(fnt1);
         quitBtn1.setFont(fnt1);
 
-        playBtn.setOnMouseClicked( mouseEvent ->  {
+        playBtn.setOnMouseClicked(mouseEvent -> {
             State = STATE.GAME;
         });
 
-        restartBtn.setOnMouseClicked( mouseEvent ->  {
+        restartBtn.setOnMouseClicked(mouseEvent -> {
             State = STATE.GAME;
 
             initializeGame();
         });
-        mainMenuBtn.setOnMouseClicked( mouseEvent ->  {
+        mainMenuBtn.setOnMouseClicked(mouseEvent -> {
             State = STATE.STARTMENU;
             initializeGame();
         });
 
-        quitBtn.setOnMouseClicked( mouseEvent -> System.exit(0));
-        quitBtn1.setOnMouseClicked( mouseEvent -> System.exit(0));
+        quitBtn.setOnMouseClicked(mouseEvent -> System.exit(0));
+        quitBtn1.setOnMouseClicked(mouseEvent -> System.exit(0));
 
 
         initializeGame();
-
 
 
         Timer timer = new Timer();
@@ -127,14 +127,12 @@ public class Controller implements Initializable {
                     menu.setVisible(false);
                     mainMenuGroup.setVisible(false);
                     gameOverMenuGroup.setVisible(false);
-                    updateScene(gc);
-                }
-                else if (State == STATE.STARTMENU) {
+                    move();
+                } else if (State == STATE.STARTMENU) {
                     menu.setVisible(true);
                     mainMenuGroup.setVisible(true);
                     gameOverMenuGroup.setVisible(false);
-                }
-                else {
+                } else {
                     menu.setVisible(true);
                     mainMenuGroup.setVisible(false);
                     gameOverMenuGroup.setVisible(true);
@@ -142,13 +140,9 @@ public class Controller implements Initializable {
             }
         }, 2000, 200);
 
-        // loop  for updating scene
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> updateScene(gc)));
-//        timeline.setCycleCount(Animation.INDEFINITE);
-//        timeline.play();
     }
 
-    private void initializeGame(){
+    private void initializeGame() {
         snake = new Snake();
         currentDirection = DOWN;
         barriers = new Barrier(3, snake);
@@ -175,38 +169,38 @@ public class Controller implements Initializable {
                 gc.fillRect(i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
             }
         }
-
     }
 
-    public void drawSnake(){
+    public void drawSnake() {
         gc.setFill(Color.web("AAAAAA"));
-        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE  -1, SQUARE_SIZE -1,50,50);
+        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50);
 
         gc.setFill(Color.web("f4f4f4"));
-        for (Point bodyPoint: snake.getBody()) gc.fillRoundRect(bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE -1, SQUARE_SIZE -1, 20, 20);
+        for (Point bodyPoint : snake.getBody())
+            gc.fillRoundRect(bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20);
     }
 
-    public void drawFood(){
+    public void drawFood() {
         gc.drawImage(new Image("/img/watermelon.png"), food.getX() * SQUARE_SIZE, food.getY() * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
     }
 
 
-    public void generateFood(){
+    public void generateFood() {
 
         // we generate random x and y , if it is same as snake head or body or barrier we generate it again
         int foodX, foodY;
         start:
-        while (true){
+        while (true) {
             foodX = random.nextInt(15);
             foodY = random.nextInt(15);
 
             if (snake.getHead().getX() == foodX && snake.getHead().getY() == foodY) continue;
 
-            for (Point barrier: barriers.getBarriers()) {
+            for (Point barrier : barriers.getBarriers()) {
                 if (barrier.getX() == foodX && barrier.getY() == foodY) continue start;
             }
 
-            for (Point snakeBody: snake.getBody()) {
+            for (Point snakeBody : snake.getBody()) {
                 if (snakeBody.getY() == foodY && snakeBody.getX() == foodX) continue start;
             }
             break;
@@ -215,48 +209,27 @@ public class Controller implements Initializable {
     }
 
 
-    private void updateScene(GraphicsContext gc) {
-
-        move();
-
-//        drawBackground();
-//        drawFood();
-//        drawSnake();
-    }
-
-    private void move(){
+    private void move() {
 
         // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
-        snake.getBody().add(0,new Point(snake.getHead().getX(), snake.getHead().getY()));
+        snake.getBody().add(0, new Point(snake.getHead().getX(), snake.getHead().getY()));
         gc.setFill(Color.web("f4f4f4"));
-        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE -1, SQUARE_SIZE -1, 20, 20);
+        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20);
 
 
         // if snake eats food we don't remove last part of snake
         if (snake.getHead().getX() == food.getX() && snake.getHead().getY() == food.getY()) {
             generateFood();
-
             drawFood();
 
             gc.setFill(Color.web("f4f4f4"));
-            gc.fillRoundRect(snake.getBody().get(snake.getBody().size()-1).getX() * SQUARE_SIZE, snake.getBody().get(snake.getBody().size()-1).getY() * SQUARE_SIZE, SQUARE_SIZE -1, SQUARE_SIZE -1, 20, 20);
+            gc.fillRoundRect(snake.getBody().get(snake.getBody().size() - 1).getX() * SQUARE_SIZE, snake.getBody().get(snake.getBody().size() - 1).getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20);
 
-        }
-        else {
+        } else {
 
-            int xe = snake.getBody().get(snake.getBody().size() - 1).getX();
-            int ye = snake.getBody().get(snake.getBody().size() - 1).getY();
+            fillGroundByColor();
 
-
-            if ((xe + ye) % 2 == 0) gc.setFill(Color.web("282554"));
-
-            else gc.setFill(Color.web("504aa5"));
-
-            gc.fillRect(xe * SQUARE_SIZE, ye * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
-
-
-            snake.getBody().remove(snake.getBody().size() -1);
-
+            snake.getBody().remove(snake.getBody().size() - 1);
         }
 
 
@@ -267,67 +240,67 @@ public class Controller implements Initializable {
             case DOWN -> snake.getHead().setY(snake.getHead().getY() + 1);
         }
 
-//        gc.setFill(Color.web("AAAAAA"));
-//        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE  -1, SQUARE_SIZE -1,50,50);
-
 
         //snake eats some part of him
         boolean tr = true;
         int iterator = snake.getBody().size();
         for (int i = 0; i < iterator; i++) {
 
-            if (tr && snake.getHead().getX() == snake.getBody().get(i).getX() && snake.getHead().getY() == snake.getBody().get(i).getY()) tr = false;
+            if (tr && snake.getHead().getX() == snake.getBody().get(i).getX() && snake.getHead().getY() == snake.getBody().get(i).getY())
+                tr = false;
             if (!tr) {
 
-                int xe = snake.getBody().get(snake.getBody().size() - 1).getX();
-                int ye = snake.getBody().get(snake.getBody().size() - 1).getY();
+                fillGroundByColor();
 
-
-                if ((xe + ye) % 2 == 0) gc.setFill(Color.web("282554"));
-
-                else gc.setFill(Color.web("504aa5"));
-
-                gc.fillRect(xe * SQUARE_SIZE, ye * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
-
-                snake.getBody().remove(snake.getBody().size() -1);
+                snake.getBody().remove(snake.getBody().size() - 1);
             }
-
         }
 
 
         gc.setFill(Color.web("AAAAAA"));
-        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE  -1, SQUARE_SIZE -1,50,50);
-
+        gc.fillRoundRect(snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50);
 
 
         // if snake goes out of play field, end game
-        if (snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14) State = STATE.GAMEOVER;
+        if (snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14)
+            State = STATE.GAMEOVER;
 
         // end program if snake head hit barrier
-        for (Point barrier: barriers.getBarriers()) {
-            if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY()) State = STATE.GAMEOVER;
+        for (Point barrier : barriers.getBarriers()) {
+            if (barrier.getX() == snake.getHead().getX() && barrier.getY() == snake.getHead().getY())
+                State = STATE.GAMEOVER;
         }
 
     }
 
 
+    public void fillGroundByColor() {
+        int x = snake.getBody().get(snake.getBody().size() - 1).getX();
+        int y = snake.getBody().get(snake.getBody().size() - 1).getY();
 
+        if ((x + y) % 2 == 0) gc.setFill(Color.web("282554"));
 
+        else gc.setFill(Color.web("504aa5"));
+
+        gc.fillRect(x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+    }
 
 
     public void changeDirection(KeyEvent keyEvent) {
         KeyCode code = keyEvent.getCode();
-//        if (State == STATE.GAME) {
+
         if (code == KeyCode.RIGHT) {
-            if (currentDirection != LEFT) currentDirection = RIGHT;
-        } else if (code == KeyCode.LEFT) {
-            if (currentDirection != RIGHT) currentDirection = LEFT;
-        } else if (code == KeyCode.UP) {
-            if (currentDirection != DOWN) currentDirection = UP;
-        } else if (code == KeyCode.DOWN) {
-            if (currentDirection != UP) currentDirection = DOWN;
+            if (currentDirection != LEFT && !(snake.getHead().getX() + 1 == snake.getBody().get(0).getX())) currentDirection = RIGHT;
         }
-    // }
+        else if (code == KeyCode.LEFT) {
+            if (currentDirection != RIGHT && !(snake.getHead().getX() - 1 == snake.getBody().get(0).getX())) currentDirection = LEFT;
+        }
+        else if (code == KeyCode.UP) {
+            if (currentDirection != DOWN && !(snake.getHead().getY() -1 == snake.getBody().get(0).getY())) currentDirection = UP;
+        }
+        else if (code == KeyCode.DOWN) {
+            if (currentDirection != UP && !(snake.getHead().getY() +1 == snake.getBody().get(0).getY())) currentDirection = DOWN;
+        }
     }
 
 }
