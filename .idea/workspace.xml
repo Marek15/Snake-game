@@ -25,38 +25,19 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="pridal som Main menu a Game Over menu, btn score este nefunguje">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/controllers/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/dao/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/view/game.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/view/gameOver.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/view/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22__4__2021_0_03__Default_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22__4__2021_0_03__Default_.xml" afterDir="false" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- sorry for large push&#10;- I rebuilt project to 3 scenes instead of 1&#10;- create some basic UI with some colors &#10;- add more options of food like cherry and orange (definitely we must change it)&#10;- change barriers to image instead of red color&#10;- add difficulty which change number of barriers and speed of snake&#10;- add score tracking +50 after eaten food and -60 for every eaten part of body snake&#10;- rebuilt project structure ( now it is more readable)&#10;- API still does not exits so you dont have to enter nickname at beginning&#10;- change color of snake">
+      <change afterPath="$PROJECT_DIR$/src/resources/img/watermelon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Final-OPG.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Final-OPG.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/img/watermelon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Barrier.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller$STATE.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Point.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Points.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/Snake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/watermelon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/img/watermelon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Barrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Barrier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Point.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Snake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/gameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/gameOver.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Snake.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +293,7 @@
       <workItem from="1619540981751" duration="1861000" />
       <workItem from="1619542871324" duration="1004000" />
       <workItem from="1619543899250" duration="2768000" />
-      <workItem from="1619546694460" duration="9694000" />
+      <workItem from="1619546694460" duration="10444000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1615886952601</created>
@@ -447,7 +428,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619044141324</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="- sorry for large push&#10;- I rebuilt project to 3 scenes instead of 1&#10;- create some basic UI with some colors &#10;- add more options of food like cherry and orange (definitely we must change it)&#10;- change barriers to image instead of red color&#10;- add difficulty which change number of barriers and speed of snake&#10;- add score tracking +50 after eaten food and -60 for every eaten part of body snake&#10;- rebuilt project structure ( now it is more readable)&#10;- API still does not exits so you dont have to enter nickname at beginning&#10;- change color of snake">
+      <created>1619556679964</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1619556679964</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -521,7 +509,8 @@
     <MESSAGE value="barriers generatin changed" />
     <MESSAGE value="starting making on change move funtion" />
     <MESSAGE value="cleaned code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned code" />
+    <MESSAGE value="- sorry for large push&#10;- I rebuilt project to 3 scenes instead of 1&#10;- create some basic UI with some colors &#10;- add more options of food like cherry and orange (definitely we must change it)&#10;- change barriers to image instead of red color&#10;- add difficulty which change number of barriers and speed of snake&#10;- add score tracking +50 after eaten food and -60 for every eaten part of body snake&#10;- rebuilt project structure ( now it is more readable)&#10;- API still does not exits so you dont have to enter nickname at beginning&#10;- change color of snake" />
+    <option name="LAST_COMMIT_MESSAGE" value="- sorry for large push&#10;- I rebuilt project to 3 scenes instead of 1&#10;- create some basic UI with some colors &#10;- add more options of food like cherry and orange (definitely we must change it)&#10;- change barriers to image instead of red color&#10;- add difficulty which change number of barriers and speed of snake&#10;- add score tracking +50 after eaten food and -60 for every eaten part of body snake&#10;- rebuilt project structure ( now it is more readable)&#10;- API still does not exits so you dont have to enter nickname at beginning&#10;- change color of snake" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

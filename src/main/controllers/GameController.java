@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import main.dao.Barrier;
@@ -33,22 +32,19 @@ public class GameController implements Initializable {
     private static final int UP = 2;
     private static final int DOWN = 3;
 
-    private final String snakeHeadColor = "ff6666";
-    private final String snakeBodyColor = "66aa66";
+    private final String SNAKE_HEAD_COLOR = "ff6666";
+    private final String SNAKE_BODY_COLOR = "66aa66";
     private final Stage window;
     private final Timer timer = new Timer();
     public GraphicsContext gc;
-    public GraphicsContext startMenuContext;
     @FXML
     Canvas background;
     @FXML
-    AnchorPane anchorPane;
-    @FXML
     Label gameScore;
 
-    private int ROWS = 15;
-    private int COLUMNS = 15;
-    private int SQUARE_SIZE = 40;
+    private final int ROWS = 15;
+    private final int COLUMNS = 15;
+    private final int SQUARE_SIZE = 40;
 
     private Snake snake;
     private Barrier barriers;
@@ -57,7 +53,7 @@ public class GameController implements Initializable {
     private Parent root;
     private Score score;
 
-    private Random random = new Random();
+    private final Random random = new Random();
     private int difficulty = 1;
 
     public GameController( Stage window, int difficulty ) {
@@ -119,29 +115,22 @@ public class GameController implements Initializable {
     }
 
     public void drawSnake() {
-        gc.setFill( Color.web( snakeHeadColor ) );
+        gc.setFill( Color.web( SNAKE_HEAD_COLOR ) );
         gc.fillRoundRect( snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
 
-        gc.setFill( Color.web( snakeBodyColor ) );
+        gc.setFill( Color.web( SNAKE_BODY_COLOR ) );
         for ( Point bodyPoint : snake.getBody() )
             gc.fillRoundRect( bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
     }
 
     public void drawFood() {
         int rn = random.nextInt( 3 );
-        String source = "/resources/img/watermelon.png";
+        String source = switch ( rn ) {
+            case 1 -> "/resources/img/orange.png";
+            case 2 -> "/resources/img/cherry.png";
+            default -> "/resources/img/watermelon.png";
+        };
 
-        switch ( rn ) {
-            case 0:
-                source = "/resources/img/watermelon.png";
-                break;
-            case 1:
-                source = "/resources/img/orange.png";
-                break;
-            case 2:
-                source = "/resources/img/cherry.png";
-                break;
-        }
         gc.drawImage( new Image( source ), food.getX() * SQUARE_SIZE, food.getY() * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE );
     }
 
@@ -172,7 +161,7 @@ public class GameController implements Initializable {
 
         // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
         snake.getBody().add( 0, new Point( snake.getHead().getX(), snake.getHead().getY() ) );
-        gc.setFill( Color.web( snakeBodyColor ) );
+        gc.setFill( Color.web( SNAKE_BODY_COLOR ) );
         gc.fillRoundRect( snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
 
 
@@ -181,7 +170,7 @@ public class GameController implements Initializable {
             generateFood();
             drawFood();
 
-            gc.setFill( Color.web( snakeBodyColor ) );
+            gc.setFill( Color.web( SNAKE_BODY_COLOR ) );
             gc.fillRoundRect( snake.getBody().get( snake.getBody().size() - 1 ).getX() * SQUARE_SIZE, snake.getBody().get( snake.getBody().size() - 1 ).getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
 
             score.add( 50L );
@@ -219,7 +208,7 @@ public class GameController implements Initializable {
         }
 
 
-        gc.setFill( Color.web( snakeHeadColor ) );
+        gc.setFill( Color.web( SNAKE_HEAD_COLOR ) );
         gc.fillRoundRect( snake.getHead().getX() * SQUARE_SIZE, snake.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
 
 
