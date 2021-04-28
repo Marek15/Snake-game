@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Original+Surfer&display=swap');
+
+
 .rounded, .button {
     -fx-border-width: 2px;
     -fx-background-radius: 10px;
@@ -5,54 +8,58 @@
 }
 
 .text, .button {
-    -fx-font-size: 20px;
-    -fx-font-weight: bolder;
-    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 25px;
+    -fx-font-family: 'Fredoka One', cursive;
     -fx-text-fill: #eee;
-
 }
 
 .button {
     -fx-background-color: #8e2de2;
-    -fx-border-color: #7D1CD1;
+    -fx-border-color: #ff6666;
     -fx-padding: 10px;
 }
 
 .button:hover, #nicknameField:focused {
-    -fx-border-color: #ff6666;
-
+    -fx-text-fill: #66aa66;
 }
 
 .title {
-    -fx-font-weight: bolder;
-    -fx-font-family: "Comic Sans MS";
-    -fx-font-size: 50px;
     -fx-text-fill: #ff6666;
 }
 .title .text {
+    -fx-font-family: 'Fredoka One', cursive;
+    -fx-font-size: 70px;
     -fx-stroke: #66aa66;
     -fx-stroke-width: 2px;
 }
-.subTitle {
-    -fx-font-weight: bolder;
-    -fx-font-family: "Comic Sans MS";
-    -fx-font-size: 25px;
-    -fx-text-fill: #ff6666;
+.subTitle, .score {
+    -fx-font-family: 'Fredoka One', cursive;
+    -fx-text-fill: #eee;
+}
+
+.subTitle .text , .score .text{
+    -fx-font-size: 35px;
+    -fx-stroke: #ff6666;
+    -fx-stroke-width: 2px;
 }
 
 .countdown {
-    -fx-font-weight: bolder;
-    -fx-font-family: "Comic Sans MS";
-    -fx-font-size: 80px;
+    -fx-font-family: 'Fredoka One', cursive;
     -fx-text-fill: #ff6666;
 }
 
-.score {
-    -fx-font-weight: bolder;
-    -fx-font-family: "Comic Sans MS";
-    -fx-font-size: 12px;
-    -fx-text-fill: #66aa66;
+.countdown .text {
+    -fx-font-size: 90px;
+    -fx-stroke: #66aa66;
+    -fx-stroke-width: 2px;
 }
+
+.whiteBack {
+    -fx-background-color: rgba(142, 45, 226, .8);
+}
+
+
+
 
 .slider .track {
     -fx-pref-height: 15;
@@ -69,7 +76,7 @@
 
 .slider .axis {
     -fx-tick-label-fill: #66aa66;
-    -fx-tick-label-font: 15px "Comic Sans MS";
+    -fx-tick-label-font: 15px 'Fredoka One', cursive;
     -fx-tick-label-font-weight: bolder;
 }
 

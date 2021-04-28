@@ -16,8 +16,6 @@ import java.io.IOException;
 public class MenuController {
 
     @FXML
-    TextField playerName;
-    @FXML
     Label gameOverScoreLabel;
     @FXML
     Slider difficultySlider;
@@ -35,7 +33,6 @@ public class MenuController {
     }
 
     public void validatePlayerName( javafx.event.ActionEvent event ) throws Exception {
-        String name = playerName.getText();
         switchToGame( event );
     }
 
