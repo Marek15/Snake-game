@@ -21,6 +21,7 @@ public class Main extends Application {
 
         window.setTitle( "Snake" );
         window.setScene( new Scene( root, 600, 600 ) );
+        window.setResizable( false );
         window.show();
     }
 }

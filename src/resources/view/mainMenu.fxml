@@ -32,14 +32,19 @@
                         <Insets top="30.0" />
                     </VBox.margin>
                 </HBox>
-                <Button mnemonicParsing="false" text="Score" textFill="WHITE">
-                    <VBox.margin>
-                        <Insets top="30.0" />
-                    </VBox.margin>
-                    <opaqueInsets>
-                        <Insets />
-                    </opaqueInsets>
-                </Button>
+            <Pane prefHeight="88.0" prefWidth="600.0">
+               <children>
+                      <Button contentDisplay="CENTER" disable="true" layoutX="254.0" layoutY="17.0" mnemonicParsing="false" text="Score" textFill="WHITE">
+                          <opaqueInsets>
+                              <Insets />
+                          </opaqueInsets>
+                      </Button>
+                  <Label layoutX="355.0" layoutY="22.0" prefHeight="44.0" prefWidth="156.0" styleClass="alert" text="Coming soon !!!" textAlignment="CENTER" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Pane>
                 <Button mnemonicParsing="false" onAction="#quitGame" text="Quit" textFill="WHITE">
                     <VBox.margin>
                         <Insets top="30.0" />
