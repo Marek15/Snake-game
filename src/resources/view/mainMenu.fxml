@@ -1,78 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.*?>
-<?import java.lang.String?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground"
-            stylesheets="@../css/custom.css" xmlns="http://javafx.com/javafx/11.0.1"
-            fx:controller="main.controllers.MenuController">
-   <children>
-      <VBox alignment="CENTER" layoutY="-2.0" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="2.0"
-            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
-         <children>
-            <Label alignment="CENTER" prefHeight="72.0" prefWidth="369.0" style="-fx-font-size: 50px;"
-                   styleClass="title" text="SNAKE GAME">
-               <VBox.margin>
-                  <Insets bottom="80.0"/>
-               </VBox.margin>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0">
-               <children>
-                  <TextField id="nicknameField" fx:id="playerName" promptText="Enter nickname"
-                             stylesheets="@../css/custom.css">
-                     <HBox.margin>
-                        <Insets right="20.0"/>
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                     </padding>
-                     <styleClass>
-                        <String fx:value="rounded"/>
-                        <String fx:value="text"/>
-                     </styleClass>
-                  </TextField>
-                  <Button mnemonicParsing="false" onAction="#validatePlayerName" stylesheets="@../css/custom.css"
-                          text="Start" textAlignment="CENTER" textFill="WHITE">
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
-                     </padding>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
-               <children>
-                  <Label styleClass="subTitle" text="Difficulty">
-                     <HBox.margin>
-                        <Insets right="30.0"/>
-                     </HBox.margin>
-                  </Label>
-                  <Slider fx:id="difficultySlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0"
-                          minorTickCount="0" prefHeight="15.0" prefWidth="167.0" showTickLabels="true"
-                          snapToTicks="true" style="-fx-font-size: 15px;" value="1.0"/>
-               </children>
-               <VBox.margin>
-                  <Insets top="30.0"/>
-               </VBox.margin>
-            </HBox>
-            <Button mnemonicParsing="false" text="Score" textFill="WHITE">
-               <VBox.margin>
-                  <Insets top="30.0"/>
-               </VBox.margin>
-               <opaqueInsets>
-                  <Insets/>
-               </opaqueInsets>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#quitGame" text="Quit" textFill="WHITE">
-               <VBox.margin>
-                  <Insets top="30.0"/>
-               </VBox.margin>
-            </Button>
-         </children>
-         <cursor>
-            <Cursor fx:constant="DEFAULT"/>
-         </cursor>
-      </VBox>
-   </children>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../css/custom.css" xmlns="http://javafx.com/javafx/11.0.10-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MenuController">
+    <children>
+        <VBox alignment="CENTER" layoutY="-2.0" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
+            <children>
+                <Label alignment="CENTER" prefHeight="72.0" prefWidth="548.0" style="-fx-font-size: 50px;" styleClass="title" text="SNAKE GAME">
+                    <VBox.margin>
+                        <Insets bottom="80.0" />
+                    </VBox.margin>
+                </Label>
+                <HBox alignment="CENTER" prefHeight="54.0" prefWidth="600.0">
+                    <children>
+                        <TextField id="nicknameField" fx:id="playerName" promptText="Enter nickname" stylesheets="@../css/custom.css">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <styleClass>
+                                <String fx:value="rounded" />
+                                <String fx:value="text" />
+                            </styleClass>
+                        </TextField>
+                        <Button mnemonicParsing="false" onAction="#validatePlayerName" stylesheets="@../css/custom.css" text="Start" textAlignment="CENTER" textFill="WHITE">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="38.0" prefWidth="600.0">
+                    <children>
+                        <Label styleClass="subTitle" text="Difficulty">
+                            <HBox.margin>
+                                <Insets right="30.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Slider fx:id="difficultySlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="15.0" prefWidth="167.0" showTickLabels="true" snapToTicks="true" style="-fx-font-size: 15px;" value="1.0" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                </HBox>
+                <Button mnemonicParsing="false" text="Score" textFill="WHITE">
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#quitGame" text="Quit" textFill="WHITE">
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                </Button>
+            </children>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+        </VBox>
+    </children>
 </AnchorPane>

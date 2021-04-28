@@ -26,35 +26,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- now its more objective oriented">
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/apple.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/berry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/cherry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/coconut.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/peach.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/pomegranate.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/img/food/tomato.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Barrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Barrier.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Point.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Score.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/img/cherry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/img/orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/img/watermelon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/mainMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/dao/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/img/cherry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/img/orange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/img/watermelon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/img/food/watermelon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Point.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Snake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/view/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/mainMenu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -473,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619604025997</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="there more option of food">
+      <created>1619627221527</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1619627221527</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +542,8 @@
     <MESSAGE value="- solve some warnings" />
     <MESSAGE value="- solved some warnings" />
     <MESSAGE value="- now its more objective oriented" />
-    <option name="LAST_COMMIT_MESSAGE" value="- now its more objective oriented" />
+    <MESSAGE value="there more option of food" />
+    <option name="LAST_COMMIT_MESSAGE" value="there more option of food" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
