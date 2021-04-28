@@ -4,10 +4,14 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.10-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.10-internal"
+            xmlns:fx="http://javafx.com/fxml/1">
 
-    <Canvas fx:id="background" height="600.0" width="600.0" />
-    <Label fx:id="gameScore" layoutX="14.0" layoutY="558.0" styleClass="score" stylesheets="@../css/custom.css" text="0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="513.0" />
-    <Label fx:id="countdown" alignment="CENTER" layoutX="202.0" layoutY="264.0" prefHeight="72.0" prefWidth="196.0" style="-fx-font-size: 50px;" styleClass="countdown" stylesheets="@../css/custom.css" />
+    <Canvas fx:id="background" height="600.0" width="600.0"/>
+    <Label fx:id="gameScore" layoutX="14.0" layoutY="558.0" styleClass="score" stylesheets="@../css/custom.css" text="0"
+           AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="513.0"/>
+    <Label fx:id="countdown" alignment="CENTER" layoutX="202.0" layoutY="264.0" prefHeight="72.0" prefWidth="196.0"
+           style="-fx-font-size: 50px;" styleClass="countdown" stylesheets="@../css/custom.css"/>
 
 </AnchorPane>

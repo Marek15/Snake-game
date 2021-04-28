@@ -29,7 +29,10 @@
     -fx-font-size: 50px;
     -fx-text-fill: #ff6666;
 }
-
+.title .text {
+    -fx-stroke: #66aa66;
+    -fx-stroke-width: 2px;
+}
 .subTitle {
     -fx-font-weight: bolder;
     -fx-font-family: "Comic Sans MS";

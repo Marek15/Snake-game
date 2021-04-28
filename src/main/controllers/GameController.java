@@ -143,8 +143,8 @@ public class GameController implements Initializable {
     }
 
     private void drawBackground() {
-        for (int i = 0; i < ROWS; i++) {
-            for (int j = 0; j < COLUMNS; j++) {
+        for ( int i = 0; i < ROWS; i++ ) {
+            for ( int j = 0; j < COLUMNS; j++ ) {
 
                 // check if it is barrier
                 if ( !snake.getBarriers().checkIfIsSame( i, j ) )
@@ -162,8 +162,8 @@ public class GameController implements Initializable {
     }
 
     public void fillGroundByColor() {
-        int x = snake.getBody().get(snake.getBody().size() - 1).getX();
-        int y = snake.getBody().get(snake.getBody().size() - 1).getY();
+        int x = snake.getBody().get( snake.getBody().size() - 1 ).getX();
+        int y = snake.getBody().get( snake.getBody().size() - 1 ).getY();
 
         if ( ( x + y ) % 2 == 0 ) graphicsContext.setFill( Color.web( BACKGROUND_COLOR_EVEN ) );
 
@@ -173,7 +173,7 @@ public class GameController implements Initializable {
     }
 
 
-    public void changeDirection(KeyEvent keyEvent) {
+    public void changeDirection( KeyEvent keyEvent ) {
 
         KeyCode code = keyEvent.getCode();
 

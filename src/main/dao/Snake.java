@@ -1,5 +1,7 @@
 package main.dao;
 
+import javafx.animation.Animation;
+import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -23,6 +25,7 @@ public class Snake {
     private final Random random = new Random();
     private int currentDirection;
     private final GraphicsContext graphicsContext;
+
     public Snake( Barrier barriers, Score score, int SQUARE_SIZE, GraphicsContext graphicsContext ) {
 
         this.barriers = barriers;
@@ -58,8 +61,8 @@ public class Snake {
 
         // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
         this.getBody().add( 0, new Point( this.getHead().getX(), this.getHead().getY() ) );
-        graphicsContext.setFill( Color.web( SNAKE_BODY_COLOR ) );
-        graphicsContext.fillRoundRect( this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
+
+        drawRect( SNAKE_BODY_COLOR, this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
 
     }
 
@@ -69,8 +72,7 @@ public class Snake {
             generateFood();
             food.drawFood();
 
-            graphicsContext.setFill( Color.web( SNAKE_BODY_COLOR ) );
-            graphicsContext.fillRoundRect( this.getBody().get( this.getBody().size() - 1 ).getX() * SQUARE_SIZE, this.getBody().get( this.getBody().size() - 1 ).getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
+            drawRect( SNAKE_BODY_COLOR, this.getBody().get( this.getBody().size() - 1 ).getX() * SQUARE_SIZE, this.getBody().get( this.getBody().size() - 1 ).getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
 
             score.add( 50L );
             return true;
@@ -92,17 +94,15 @@ public class Snake {
 
     public void moveHead() {
 
-        graphicsContext.setFill( Color.web( SNAKE_HEAD_COLOR ) );
-        graphicsContext.fillRoundRect( this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
+        drawRect( SNAKE_HEAD_COLOR, this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
     }
 
     public void drawSnake() {
-        graphicsContext.setFill( Color.web( SNAKE_HEAD_COLOR ) );
-        graphicsContext.fillRoundRect( this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
 
-        graphicsContext.setFill( Color.web( SNAKE_BODY_COLOR ) );
-        for ( Point bodyPoint : this.getBody() )
-            graphicsContext.fillRoundRect( bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
+        drawRect( SNAKE_HEAD_COLOR, getHead().getX() * SQUARE_SIZE, getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
+
+        for ( Point bodyPoint : getBody() )
+            drawRect( SNAKE_BODY_COLOR, bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
     }
 
     public void generateFood() {
@@ -141,6 +141,13 @@ public class Snake {
                 return true;
         }
         return false;
+    }
+
+    private void drawRect( String color, double x, double y, double width, double height, double arcWidth, double arcHeight ) {
+
+        graphicsContext.setFill( Color.web( color ) );
+        graphicsContext.fillRoundRect( x, y, width, height, arcWidth, arcHeight );
+
     }
 
     public Point getHead() {
