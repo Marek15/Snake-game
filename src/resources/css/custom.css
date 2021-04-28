@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Original+Surfer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 
 .rounded, .button {
@@ -19,7 +19,7 @@
     -fx-padding: 10px;
 }
 
-.button:hover, #nicknameField:focused {
+.button:hover {
     -fx-text-fill: #66aa66;
 }
 
@@ -58,15 +58,11 @@
     -fx-background-color: rgba(142, 45, 226, .8);
 }
 
-
-
-
 .slider .track {
     -fx-pref-height: 15;
     -fx-background-color: #7D1CD1;
 
 }
-
 
 .slider .thumb {
     -fx-pref-height: 25;
@@ -76,17 +72,19 @@
 
 .slider .axis {
     -fx-tick-label-fill: #66aa66;
-    -fx-tick-label-font: 15px 'Fredoka One', cursive;
+    -fx-tick-label-font: 20px 'Fredoka One', cursive;
     -fx-tick-label-font-weight: bolder;
 }
-
 
 .menuBackground {
     -fx-background-color: linear-gradient(to bottom, #8e2de2, #4a00e0);
 }
 
-#nicknameField {
-    -fx-background-color: #8E2DE2;
-    -fx-border-color: #7D1CD1;
+.alert {
+    -fx-font-family: 'Fredoka One', cursive;
+    -fx-text-fill: red;
+}
 
+.alert .text {
+    -fx-font-size: 20px;
 }
