@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -14,6 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -122,6 +125,7 @@ public class GameController implements Initializable {
         timeline.setCycleCount( 5 );
         KeyFrame frame = new KeyFrame( Duration.seconds( .75 ), actionEvent -> {
 
+            if ( seconds == 4 ) countdown.getStyleClass().add( "whiteBack" );
 
             if ( seconds > 1 )
                 countdown.setText( String.valueOf( seconds - 1 ) );
@@ -132,7 +136,10 @@ public class GameController implements Initializable {
 
             if ( seconds == -1 ) {
                 timeline.stop();
+
                 countdown.setText( "" );
+                countdown.getStyleClass().remove( "whiteBack" );
+
                 timer.schedule( timerTask, 0, 300 - ( ( difficulty ) * 50 ) );
             }
         } );
