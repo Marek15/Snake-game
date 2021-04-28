@@ -1,7 +1,5 @@
 package main.dao;
 
-import javafx.animation.Animation;
-import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
