@@ -37,6 +37,13 @@
     -fx-text-fill: #ff6666;
 }
 
+.countdown {
+    -fx-font-weight: bolder;
+    -fx-font-family: "Comic Sans MS";
+    -fx-font-size: 80px;
+    -fx-text-fill: #ff6666;
+}
+
 .score {
     -fx-font-weight: bolder;
     -fx-font-family: "Comic Sans MS";
