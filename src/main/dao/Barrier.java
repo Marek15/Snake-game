@@ -6,16 +6,21 @@ import java.util.Random;
 public class Barrier {
 
     private final ArrayList<Point> barriers = new ArrayList<>();
+    private final int numberOfBarriers;
 
-    public Barrier(int countOfBarriers, Snake snake) {
+    public Barrier( int numberOfBarriers ) {
+        this.numberOfBarriers = numberOfBarriers;
+    }
+
+    public void Initialze( int snakeHeadXPosition ) {
         Random rn = new Random();
 
-        for (int i = 0; i < countOfBarriers; i++) {
-            int x = rn.nextInt(15);
-            int y = rn.nextInt(15);
+        for ( int i = 0; i < numberOfBarriers; i++ ) {
+            int x = rn.nextInt( 15 );
+            int y = rn.nextInt( 15 );
 
-            if (checkIfIsSame(x, y) && checkSnakePosition(x, snake) && checkBorderPoint(x, y))
-                barriers.add(new Point(x, y));
+            if ( checkIfIsSame( x, y ) && checkSnakePosition( x, snakeHeadXPosition ) && checkBorderPoint( x, y ) )
+                barriers.add( new Point( x, y ) );
             else i--;
         }
     }
@@ -24,19 +29,19 @@ public class Barrier {
         return barriers;
     }
 
-    public boolean checkIfIsSame(int x, int y) {
-        for (Point barrier : barriers) {
-            if (barrier.getX() == x && barrier.getY() == y) return false;
+    public boolean checkIfIsSame( int x, int y ) {
+        for ( Point barrier : barriers ) {
+            if ( barrier.getX() == x && barrier.getY() == y ) return false;
         }
         return true;
     }
 
-    public boolean checkSnakePosition(int x, Snake snake) {
-        return snake.getHead().getX() != x;
+    public boolean checkSnakePosition( int x, int snakeHeadXPosition ) {
+        return snakeHeadXPosition != x;
     }
 
-    public boolean checkBorderPoint(int x, int y) {
-        return !(x == 14 || x == 0 || y == 0 || y == 14);
+    public boolean checkBorderPoint( int x, int y ) {
+        return !( x == 14 || x == 0 || y == 0 || y == 14 );
     }
 
 
