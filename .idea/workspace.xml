@@ -26,15 +26,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- now its more objective oriented">
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/berry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/cherry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/coconut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/orange.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/peach.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/pomegranate.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/img/food/tomato.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Barrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Barrier.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Score.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Score.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/img/cherry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/img/orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/img/watermelon.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/dao/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/img/cherry.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/img/orange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/img/watermelon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/img/food/watermelon.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +158,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="D:/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/img/food" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -154,7 +173,11 @@
     <property name="settings.editor.splitter.proportion" value="0.22708757" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/img/food" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/img/food" />
       <recent name="C:\Users\Marcus\IdeaProjects\OPG-Final\src\resources\view" />
       <recent name="C:\Users\Marcus\IdeaProjects\OPG-Final\src\resources\css" />
       <recent name="C:\Users\Marcus\IdeaProjects\OPG-Final\src\resources\img" />
@@ -175,6 +198,19 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -190,7 +226,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Final-OPG" />
-      <option name="VM_PARAMETERS" value="--module-path D:\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib --add-modules=javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
+      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Documents/Libs/javafx-sdk-15.0.1/lib --add-modules=javafx.controls,javafx.fxml --add-exports javafx.graphics/com.sun.javafx.sg.prism=ALL-UNNAMED" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.dao.*" />
@@ -205,19 +241,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -536,6 +559,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.IllegalStateException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -8,7 +8,7 @@ import java.util.Random;
 public class Food extends Point {
 
     private final GraphicsContext graphicsContext;
-    private final String[] foodImages = { "/resources/img/orange.png", "/resources/img/cherry.png", "/resources/img/watermelon.png" };
+    private final String[] foodImages = {"orange", "cherry", "watermelon", "tomato", "pomegranate", "peach", "coconut", "berry", "apple"};
     private final int SQUARE_SIZE;
 
 
@@ -21,6 +21,6 @@ public class Food extends Point {
     public void drawFood() {
         Random random = new Random();
         int num = random.nextInt( foodImages.length );
-        graphicsContext.drawImage( new Image( foodImages[ num ] ), this.getX() * SQUARE_SIZE, this.getY() * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE );
+        graphicsContext.drawImage( new Image( "/resources/img/food/" + foodImages[ num ] + ".png"), this.getX() * SQUARE_SIZE, this.getY() * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE );
     }
 }
