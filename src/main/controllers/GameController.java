@@ -1,5 +1,7 @@
 package main.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import main.dao.Barrier;
 import main.dao.Score;
 import main.dao.Snake;
@@ -42,6 +45,8 @@ public class GameController implements Initializable {
     Canvas background;
     @FXML
     Label gameScore;
+    @FXML
+    Label countdown;
 
     private final int ROWS = 15;
     private final int COLUMNS = 15;
@@ -49,6 +54,7 @@ public class GameController implements Initializable {
 
     private Snake snake;
     private int difficulty = 1;
+    private Integer seconds = 4;
 
     public GameController( Stage window, int difficulty ) {
         this.window = window;
@@ -60,8 +66,6 @@ public class GameController implements Initializable {
     public void initialize( URL url, ResourceBundle resourceBundle ) {
 
         graphicsContext = background.getGraphicsContext2D();
-
-
         Barrier barriers = new Barrier( 3 + ( difficulty * 2 ) );
         Score score = new Score( gameScore );
         snake = new Snake( barriers, score, SQUARE_SIZE, graphicsContext );
@@ -72,8 +76,7 @@ public class GameController implements Initializable {
         snake.generateFood();
         snake.getFood().drawFood();
 
-
-        timer.schedule( new TimerTask() {
+        TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
                 Platform.runLater( () -> {
@@ -113,7 +116,28 @@ public class GameController implements Initializable {
                     }
                 } );
             }
-        }, 2000, 300 - ( ( difficulty ) * 50 ) );
+        };
+
+        Timeline timeline = new Timeline();
+        timeline.setCycleCount( 5 );
+        KeyFrame frame = new KeyFrame( Duration.seconds( .75 ), actionEvent -> {
+
+
+            if ( seconds > 1 )
+                countdown.setText( String.valueOf( seconds - 1 ) );
+            else
+                countdown.setText( "START" );
+
+            seconds--;
+
+            if ( seconds == -1 ) {
+                timeline.stop();
+                countdown.setText( "" );
+                timer.schedule( timerTask, 0, 300 - ( ( difficulty ) * 50 ) );
+            }
+        } );
+        timeline.getKeyFrames().add( frame );
+        timeline.playFromStart();
 
 
     }
