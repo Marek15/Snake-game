@@ -43,6 +43,10 @@
     -fx-stroke-width: 2px;
 }
 
+.biggerSubTittle .text {
+    -fx-font-size: 50px;
+}
+
 .countdown {
     -fx-font-family: 'Fredoka One', cursive;
     -fx-text-fill: #ff6666;
