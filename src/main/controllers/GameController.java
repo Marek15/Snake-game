@@ -138,7 +138,7 @@ public class GameController implements Initializable {
                 countdown.setText( "" );
                 countdown.getStyleClass().remove( "whiteBack" );
 
-                timer.schedule( timerTask, 0, 300 - ( ( difficulty ) * 50 ) );
+                timer.schedule( timerTask, 0, 350 - ( ( difficulty ) * 50 ) );
             }
         } );
         timeline.getKeyFrames().add( frame );
@@ -206,7 +206,9 @@ public class GameController implements Initializable {
 
         MenuController menuController = gameOverScene.getController();
         menuController.gameOverScoreLabel.setText( snake.getScore().getScore().toString() );
-        menuController.setDifficulty( difficulty );
+        menuController.gameOverDifficultyLabel.setText( String.valueOf( difficulty ) );
+        menuController.setDifficulty( difficulty  );
+
 
         window.setScene( new Scene( root ) );
         window.show();
