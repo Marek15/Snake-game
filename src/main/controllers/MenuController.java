@@ -16,6 +16,10 @@ public class MenuController {
 
     @FXML
     Label gameOverScoreLabel;
+
+    @FXML
+    Label gameOverDifficultyLabel;
+
     @FXML
     Slider difficultySlider;
 
@@ -25,15 +29,17 @@ public class MenuController {
 
     public void setDifficulty( int difficulty ) {
         this.difficulty = difficulty;
+
+    }
+
+    public void setValueDifficultySlider( int value ) {
+        this.difficultySlider.setValue( value );
     }
 
     public void quitGame() {
         System.exit( 0 );
     }
 
-    public void validatePlayerName( javafx.event.ActionEvent event ) throws Exception {
-        switchToGame( event );
-    }
 
     public void switchToGame( javafx.event.ActionEvent event ) throws Exception {
 
@@ -42,7 +48,7 @@ public class MenuController {
         window = ( Stage ) ( ( Node ) event.getSource() ).getScene().getWindow();
 
         if ( difficultySlider != null )
-            difficulty = ( int ) difficultySlider.getValue() - 1;
+            difficulty = ( int ) difficultySlider.getValue();
 
         GameController gameController = new GameController( window, difficulty );
 
@@ -60,6 +66,9 @@ public class MenuController {
 
         FXMLLoader mainMenu = new FXMLLoader( getClass().getResource( "/resources/view/mainMenu.fxml" ) );
         root = mainMenu.load();
+
+        MenuController menuController = mainMenu.getController() ;
+        menuController.setValueDifficultySlider( difficulty );
 
         window = ( Stage ) ( ( Node ) event.getSource() ).getScene().getWindow();
         window.setScene( new Scene( root ) );

@@ -26,19 +26,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="- now its more objective oriented">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22__4__2021_0_03_[Default]/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22__4__2021_0_03_[Default]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_22__4__2021_0_03__Default_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/controllers/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/main/dao/Snake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/gameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/gameOver.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Final-OPG/resources/view/mainMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/controllers/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/controllers/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/dao/Snake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/dao/Snake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/view/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/gameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/gameOver.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/view/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/view/mainMenu.fxml" afterDir="false" />
     </list>
@@ -144,7 +138,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/resources/img/food" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -487,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619635124501</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="cleaned code">
+      <created>1619637261263</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1619637261263</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +561,6 @@
     <MESSAGE value="changed timeline to timer and maked delay" />
     <MESSAGE value="barriers generatin changed" />
     <MESSAGE value="starting making on change move funtion" />
-    <MESSAGE value="cleaned code" />
     <MESSAGE value="- sorry for large push&#10;- I rebuilt project to 3 scenes instead of 1&#10;- create some basic UI with some colors &#10;- add more options of food like cherry and orange (definitely we must change it)&#10;- change barriers to image instead of red color&#10;- add difficulty which change number of barriers and speed of snake&#10;- add score tracking +50 after eaten food and -60 for every eaten part of body snake&#10;- rebuilt project structure ( now it is more readable)&#10;- API still does not exits so you dont have to enter nickname at beginning&#10;- change color of snake" />
     <MESSAGE value="- solve some warnings" />
     <MESSAGE value="- solved some warnings" />
@@ -570,7 +570,8 @@
     <MESSAGE value="a little UI changes" />
     <MESSAGE value="some small UI changes" />
     <MESSAGE value="some other changes in code" />
-    <option name="LAST_COMMIT_MESSAGE" value="some other changes in code" />
+    <MESSAGE value="cleaned code" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
