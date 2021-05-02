@@ -17,10 +17,11 @@
     -fx-background-color: #8e2de2;
     -fx-border-color: #ff6666;
     -fx-padding: 10px;
+    -fx-cursor: hand;
 }
 
 .button:hover {
-    -fx-text-fill: #66aa66;
+    -fx-text-fill: #ff6666;
 }
 
 .title {
@@ -62,9 +63,13 @@
     -fx-background-color: rgba(142, 45, 226, .8);
 }
 
+
 .slider .track {
     -fx-pref-height: 15;
     -fx-background-color: #7D1CD1;
+    -fx-border-color: #ff6666;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
 
 }
 
@@ -72,13 +77,19 @@
     -fx-pref-height: 25;
     -fx-pref-width: 25;
     -fx-background-color: #ff6666;
+    -fx-border-color: #66aa66;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50%;
+    -fx-cursor: closed_hand;
+
 }
 
 .slider .axis {
-    -fx-tick-label-fill: #66aa66;
+    -fx-tick-label-fill: #eee;
     -fx-tick-label-font: 20px 'Fredoka One', cursive;
     -fx-tick-label-font-weight: bolder;
 }
+
 
 .menuBackground {
     -fx-background-color: linear-gradient(to bottom, #8e2de2, #4a00e0);
