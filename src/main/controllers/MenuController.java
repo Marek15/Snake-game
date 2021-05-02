@@ -50,6 +50,7 @@ public class MenuController {
         if ( difficultySlider != null )
             difficulty = ( int ) difficultySlider.getValue();
 
+
         GameController gameController = new GameController( window, difficulty );
 
         gameScene.setController( gameController );

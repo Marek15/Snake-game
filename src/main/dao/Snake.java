@@ -7,29 +7,28 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Snake {
+
+
     private static final int RIGHT = 0;
     private static final int LEFT = 1;
     private static final int UP = 2;
     private static final int DOWN = 3;
+
     private final String SNAKE_HEAD_COLOR = "ff6666";
     private final String SNAKE_BODY_COLOR = "66aa66";
-    private final Barrier barriers;
+
+    private final int SQUARE_SIZE;
+
+    private final GraphicsContext graphicsContext;
+    private final Random random = new Random();
 
     private Point head;
     private ArrayList<Point> body = new ArrayList<>();
-    private final Food food;
-    private final Score score;
-    private final int SQUARE_SIZE;
-    private final Random random = new Random();
     private int currentDirection;
-    private final GraphicsContext graphicsContext;
 
-    public Snake( Barrier barriers, Score score, int SQUARE_SIZE, GraphicsContext graphicsContext ) {
 
-        this.barriers = barriers;
+    public Snake( int SQUARE_SIZE, GraphicsContext graphicsContext ) {
 
-        this.food = new Food( SQUARE_SIZE, graphicsContext );
-        this.score = score;
         this.graphicsContext = graphicsContext;
         this.SQUARE_SIZE = SQUARE_SIZE;
 
@@ -40,42 +39,33 @@ public class Snake {
         this.head = new Point( x, y );
         this.body.add( new Point( x, y - 1 ) );
 
-        this.barriers.Initialze( this.getHead().getX() );
-    }
-
-    public Barrier getBarriers() {
-        return barriers;
-    }
-
-    public Food getFood() {
-        return food;
-    }
-
-    public Score getScore() {
-        return score;
-    }
-
-    public void move() {
-
-        // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
-        this.getBody().add( 0, new Point( this.getHead().getX(), this.getHead().getY() ) );
-
-        drawRect( SNAKE_BODY_COLOR, this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
 
     }
 
-    public boolean isEating() {
+
+    public boolean isEating( double foodX, double foodY ) {
         // if snake eats food we don't remove last part of snake
-        if ( this.getHead().getX() == food.getX() && this.getHead().getY() == food.getY() ) {
-            generateFood();
-            food.drawFood();
-
+        if ( this.getHead().getX() == foodX && this.getHead().getY() == foodY ) {
             drawRect( SNAKE_BODY_COLOR, this.getBody().get( this.getBody().size() - 1 ).getX() * SQUARE_SIZE, this.getBody().get( this.getBody().size() - 1 ).getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
-
-            score.add( 50L );
             return true;
+        }
+        return false;
+    }
 
-        } else return false;
+    public int isCannibal() {
+        boolean tr = true;
+        int iterator = this.getBody().size();
+        int numberOfEatenBodyParts = 0;
+        for ( int i = 0; i < iterator; i++ ) {
+
+            if ( tr && this.getHead().getX() == this.getBody().get( i ).getX() && this.getHead().getY() == this.getBody().get( i ).getY() )
+                tr = false;
+            if ( !tr ) {
+                numberOfEatenBodyParts++;
+            }
+        }
+
+        return numberOfEatenBodyParts;
     }
 
 
@@ -86,8 +76,15 @@ public class Snake {
             case UP -> this.getHead().setY( this.getHead().getY() - 1 );
             case DOWN -> this.getHead().setY( this.getHead().getY() + 1 );
         }
+    }
 
 
+    public void draw() {
+
+        drawRect( SNAKE_HEAD_COLOR, this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
+
+        for ( Point bodyPoint : getBody() )
+            drawRect( SNAKE_BODY_COLOR, bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
     }
 
     public void moveHead() {
@@ -95,50 +92,14 @@ public class Snake {
         drawRect( SNAKE_HEAD_COLOR, this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
     }
 
-    public void drawSnake() {
 
-        drawRect( SNAKE_HEAD_COLOR, getHead().getX() * SQUARE_SIZE, getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 50, 50 );
+    public void moveBody() {
 
-        for ( Point bodyPoint : getBody() )
-            drawRect( SNAKE_BODY_COLOR, bodyPoint.getX() * SQUARE_SIZE, bodyPoint.getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
-    }
+        // add to start snake body, former snake head + remove last point of snake body and in next step generate snake head on proper position by pressed key
+        this.getBody().add( 0, new Point( this.getHead().getX(), this.getHead().getY() ) );
 
-    public void generateFood() {
+        drawRect( SNAKE_BODY_COLOR, this.getHead().getX() * SQUARE_SIZE, this.getHead().getY() * SQUARE_SIZE, SQUARE_SIZE - 1, SQUARE_SIZE - 1, 20, 20 );
 
-        // we generate random x and y , if it is same as snake head or body or barrier we generate it again
-        int foodX, foodY;
-        start:
-        while ( true ) {
-            foodX = random.nextInt( 15 );
-            foodY = random.nextInt( 15 );
-
-            if ( this.getHead().getX() == foodX && this.getHead().getY() == foodY ) continue;
-
-            for ( Point barrier : barriers.getBarriers() ) {
-                if ( barrier.getX() == foodX && barrier.getY() == foodY ) continue start;
-            }
-
-            for ( Point snakeBody : this.getBody() ) {
-                if ( snakeBody.getY() == foodY && snakeBody.getX() == foodX ) continue start;
-            }
-            break;
-        }
-        food.setX( foodX );
-        food.setY( foodY );
-    }
-
-
-    public boolean isCrashed() {
-        // if snake goes out of play field, end game
-        if ( this.getHead().getY() > 14 || this.getHead().getY() < 0 || this.getHead().getX() < 0 || this.getHead().getX() > 14 )
-            return true;
-
-        // end program if snake head hit barrier
-        for ( Point barrier : barriers.getBarriers() ) {
-            if ( ( barrier.getX() == this.getHead().getX() ) && ( barrier.getY() == this.getHead().getY() ) )
-                return true;
-        }
-        return false;
     }
 
     private void drawRect( String color, double x, double y, double width, double height, double arcWidth, double arcHeight ) {
@@ -147,6 +108,7 @@ public class Snake {
         graphicsContext.fillRoundRect( x, y, width, height, arcWidth, arcHeight );
 
     }
+
 
     public Point getHead() {
         return head;

@@ -17,11 +17,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import main.dao.Barrier;
-import main.dao.Score;
-import main.dao.Snake;
+import main.dao.*;
 
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -39,6 +38,7 @@ public class GameController implements Initializable {
 
     private final Stage window;
 
+    private final Random random = new Random();
     private final Timer timer = new Timer();
     public GraphicsContext graphicsContext;
 
@@ -54,8 +54,11 @@ public class GameController implements Initializable {
     private final int SQUARE_SIZE = 40;
 
     private Snake snake;
+    private Food food;
+    private Score score;
+    private Barrier barriers;
     private int difficulty = 1;
-    private Integer seconds = 4;
+    private Integer countdownSeconds = 4;
 
     public GameController( Stage window, int difficulty ) {
         this.window = window;
@@ -67,15 +70,18 @@ public class GameController implements Initializable {
     public void initialize( URL url, ResourceBundle resourceBundle ) {
 
         graphicsContext = background.getGraphicsContext2D();
-        Barrier barriers = new Barrier( 3 + ( difficulty * 2 ) );
-        Score score = new Score( gameScore );
-        snake = new Snake( barriers, score, SQUARE_SIZE, graphicsContext );
+        barriers = new Barrier( 3 + ( difficulty * 2 ) );
+
+        score = new Score( gameScore );
+        food = new Food( SQUARE_SIZE, graphicsContext );
+        snake = new Snake( SQUARE_SIZE, graphicsContext );
         snake.setCurrentDirection( DOWN );
 
+        barriers.Initialze( snake.getHead().getX() );
         drawBackground();
-        snake.drawSnake();
-        snake.generateFood();
-        snake.getFood().drawFood();
+        snake.draw();
+        generateFood();
+
 
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -83,34 +89,26 @@ public class GameController implements Initializable {
                 Platform.runLater( () -> {
                     try {
 
-                        snake.move();
+                        snake.moveBody();
 
-                        if ( !snake.isEating() ) {
-                            fillGroundByColor();
-                            snake.getBody().remove( snake.getBody().size() - 1 );
+                        if ( snake.isEating( food.getX(), food.getY() ) ) {
+                            score.add( 50L );
+                            generateFood();
+                        } else {
+                            fillBackgroundAfterSnake( 1 );
                         }
 
                         snake.setDirectionOfHead();
 
-                        boolean tr = true;
-                        int iterator = snake.getBody().size();
-                        int loop;
-                        for ( loop = 0; loop < iterator; loop++ ) {
-
-                            if ( tr && snake.getHead().getX() == snake.getBody().get( loop ).getX() && snake.getHead().getY() == snake.getBody().get( loop ).getY() )
-                                tr = false;
-                            if ( !tr ) {
-
-                                fillGroundByColor();
-
-                                snake.getBody().remove( snake.getBody().size() - 1 );
-                                snake.getScore().countdown( 60L );
-                            }
+                        int numberOfEatenBodyParts;
+                        if ( ( numberOfEatenBodyParts = snake.isCannibal() ) > 0 ) {
+                            score.countdown( 60L * numberOfEatenBodyParts );
+                            fillBackgroundAfterSnake( numberOfEatenBodyParts );
                         }
 
                         snake.moveHead();
 
-                        if ( snake.isCrashed() ) switchToGameOver();
+                        if ( isCrashed() ) switchToGameOver();
 
                     } catch ( Exception e ) {
                         e.printStackTrace();
@@ -121,18 +119,19 @@ public class GameController implements Initializable {
 
         Timeline timeline = new Timeline();
         timeline.setCycleCount( 5 );
-        KeyFrame frame = new KeyFrame( Duration.seconds( .75 ), actionEvent -> {
 
-            if ( seconds == 4 ) countdown.getStyleClass().add( "whiteBack" );
+        KeyFrame frame = new KeyFrame( Duration.seconds( .5 ), actionEvent -> {
 
-            if ( seconds > 1 )
-                countdown.setText( String.valueOf( seconds - 1 ) );
+            if ( countdownSeconds == 4 ) countdown.getStyleClass().add( "whiteBack" );
+
+            if ( countdownSeconds > 1 )
+                countdown.setText( String.valueOf( countdownSeconds - 1 ) );
             else
                 countdown.setText( "START" );
 
-            seconds--;
+            countdownSeconds--;
 
-            if ( seconds == -1 ) {
+            if ( countdownSeconds == -1 ) {
                 timeline.stop();
 
                 countdown.setText( "" );
@@ -141,6 +140,7 @@ public class GameController implements Initializable {
                 timer.schedule( timerTask, 0, 350 - ( ( difficulty ) * 50 ) );
             }
         } );
+
         timeline.getKeyFrames().add( frame );
         timeline.playFromStart();
 
@@ -152,7 +152,7 @@ public class GameController implements Initializable {
             for ( int j = 0; j < COLUMNS; j++ ) {
 
                 // check if it is barrier
-                if ( !snake.getBarriers().checkIfIsSame( i, j ) )
+                if ( !barriers.checkIfIsSame( i, j ) )
                     graphicsContext.drawImage( new Image( "/resources/img/woodBox.png" ), i * SQUARE_SIZE, j * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE );
 
                 else if ( ( i + j ) % 2 == 0 ) {
@@ -166,22 +166,65 @@ public class GameController implements Initializable {
         }
     }
 
-    public void fillGroundByColor() {
-        int x = snake.getBody().get( snake.getBody().size() - 1 ).getX();
-        int y = snake.getBody().get( snake.getBody().size() - 1 ).getY();
+    public void fillBackgroundAfterSnake( int numberOfBodyParts ) {
 
-        if ( ( x + y ) % 2 == 0 ) graphicsContext.setFill( Color.web( BACKGROUND_COLOR_EVEN ) );
+        for ( int i = 1; i <= numberOfBodyParts; i++ ) {
 
-        else graphicsContext.setFill( Color.web( BACKGROUND_COLOR_ODD ) );
+            int x = snake.getBody().get( snake.getBody().size() - 1 ).getX();
+            int y = snake.getBody().get( snake.getBody().size() - 1 ).getY();
 
-        graphicsContext.fillRect( x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE );
+            if ( ( x + y ) % 2 == 0 ) graphicsContext.setFill( Color.web( BACKGROUND_COLOR_EVEN ) );
+
+            else graphicsContext.setFill( Color.web( BACKGROUND_COLOR_ODD ) );
+
+            graphicsContext.fillRect( x * SQUARE_SIZE, y * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE );
+
+            snake.getBody().remove( snake.getBody().size() - 1 );
+        }
+    }
+
+    public void generateFood() {
+
+        // we generate random x and y , if it is same as snake head or body or barrier we generate it again
+        int foodX, foodY;
+        start:
+        while ( true ) {
+            foodX = random.nextInt( 15 );
+            foodY = random.nextInt( 15 );
+
+            if ( snake.getHead().getX() == foodX && snake.getHead().getY() == foodY ) continue;
+
+            for ( Point barrier : barriers.getBarriers() ) {
+                if ( barrier.getX() == foodX && barrier.getY() == foodY ) continue start;
+            }
+
+            for ( Point snakeBody : snake.getBody() ) {
+                if ( snakeBody.getY() == foodY && snakeBody.getX() == foodX ) continue start;
+            }
+            break;
+        }
+        food.setX( foodX );
+        food.setY( foodY );
+        food.drawFood();
+    }
+
+    public boolean isCrashed() {
+        // if snake goes out of play field, end game
+        if ( snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14 )
+            return true;
+
+        // end program if snake head hit barrier
+        for ( Point barrier : barriers.getBarriers() ) {
+            if ( ( barrier.getX() == snake.getHead().getX() ) && ( barrier.getY() == snake.getHead().getY() ) )
+                return true;
+        }
+        return false;
     }
 
 
     public void changeDirection( KeyEvent keyEvent ) {
 
         KeyCode code = keyEvent.getCode();
-
 
         if ( code == KeyCode.RIGHT ) {
             if ( snake.getCurrentDirection() != LEFT && !( snake.getHead().getX() + 1 == snake.getBody().get( 0 ).getX() ) )
@@ -205,9 +248,9 @@ public class GameController implements Initializable {
         Parent root = gameOverScene.load();
 
         MenuController menuController = gameOverScene.getController();
-        menuController.gameOverScoreLabel.setText( snake.getScore().getScore().toString() );
+        menuController.gameOverScoreLabel.setText( score.getScore().toString() );
         menuController.gameOverDifficultyLabel.setText( String.valueOf( difficulty ) );
-        menuController.setDifficulty( difficulty  );
+        menuController.setDifficulty( difficulty );
 
 
         window.setScene( new Scene( root ) );
