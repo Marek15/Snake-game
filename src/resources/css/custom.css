@@ -44,6 +44,19 @@
     -fx-stroke-width: 2px;
 }
 
+
+.scoreInfo .text{
+    -fx-font-family: 'Fredoka One', cursive;
+    -fx-font-size: 25px;
+}
+.scoreInfoRed {
+    -fx-text-fill: #ff2222;
+}
+
+.scoreInfoGreen {
+    -fx-text-fill: #22ff22;
+}
+
 .biggerSubTittle .text {
     -fx-font-size: 50px;
 }

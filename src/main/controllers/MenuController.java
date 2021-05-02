@@ -17,6 +17,8 @@ public class MenuController {
     @FXML
     Label gameOverScoreLabel;
 
+
+
     @FXML
     Label gameOverDifficultyLabel;
 

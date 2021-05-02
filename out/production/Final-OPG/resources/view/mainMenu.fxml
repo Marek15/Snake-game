@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.*?>
-
 <AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../css/custom.css" xmlns="http://javafx.com/javafx/11.0.10-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MenuController">
     <children>
         <VBox alignment="CENTER" layoutY="-2.0" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-2.0">
@@ -23,13 +22,16 @@
                     <children>
                         <Label styleClass="subTitle" text="Difficulty">
                             <HBox.margin>
-                                <Insets right="30.0" />
+                                <Insets right="30.0"/>
                             </HBox.margin>
                         </Label>
-                        <Slider fx:id="difficultySlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" prefHeight="15.0" prefWidth="167.0" showTickLabels="true" snapToTicks="true" style="-fx-font-size: 15px;" value="1.0">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor></Slider>
+                        <Slider fx:id="difficultySlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" min="1.0"
+                                minorTickCount="0" prefHeight="15.0" prefWidth="167.0" showTickLabels="true"
+                                snapToTicks="true" style="-fx-font-size: 15px;" value="1.0">
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT"/>
+                            </cursor>
+                        </Slider>
                     </children>
                     <VBox.margin>
                         <Insets top="30.0" />
