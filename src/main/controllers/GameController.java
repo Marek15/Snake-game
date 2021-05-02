@@ -44,8 +44,13 @@ public class GameController implements Initializable {
 
     @FXML
     Canvas background;
+
     @FXML
     Label gameScore;
+
+    @FXML
+    Label scoreInfoLabel;
+
     @FXML
     Label countdown;
 
@@ -57,7 +62,7 @@ public class GameController implements Initializable {
     private Food food;
     private Score score;
     private Barrier barriers;
-    private int difficulty = 1;
+    private int difficulty;
     private Integer countdownSeconds = 4;
 
     public GameController( Stage window, int difficulty ) {
@@ -72,7 +77,7 @@ public class GameController implements Initializable {
         graphicsContext = background.getGraphicsContext2D();
         barriers = new Barrier( 3 + ( difficulty * 2 ) );
 
-        score = new Score( gameScore );
+        score = new Score( gameScore, scoreInfoLabel );
         food = new Food( SQUARE_SIZE, graphicsContext );
         snake = new Snake( SQUARE_SIZE, graphicsContext );
         snake.setCurrentDirection( DOWN );
@@ -137,7 +142,7 @@ public class GameController implements Initializable {
                 countdown.setText( "" );
                 countdown.getStyleClass().remove( "whiteBack" );
 
-                timer.schedule( timerTask, 0, 350 - ( ( difficulty ) * 50 ) );
+                timer.schedule( timerTask, 0, 350 - ( ( difficulty ) * 50L ) );
             }
         } );
 
