@@ -72,7 +72,7 @@
          <children>
             <Button alignment="CENTER" mnemonicParsing="false" prefHeight="55.0" prefWidth="53.0" text="ⓘ">
                <tooltip>
-                  <Tooltip anchorLocation="CONTENT_TOP_RIGHT" autoHide="true" hideOnEscape="false" text="You do not have to enter a nickname, but your score will not be saved. " textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
+                  <Tooltip anchorLocation="CONTENT_TOP_RIGHT" autoHide="true" hideOnEscape="false" text="You do not have to enter a nickname, but your score will not be saved. " textAlignment="CENTER" wrapText="true" />
                </tooltip></Button>
          </children>
          <VBox.margin>

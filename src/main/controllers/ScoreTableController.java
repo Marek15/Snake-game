@@ -2,7 +2,6 @@ package main.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,9 +24,6 @@ public class ScoreTableController {
     @FXML
     TableView<PlayerData> scoreTable;
 
-
-    private Stage window;
-    private Parent root;
 
     ObservableList<PlayerData> tableData;
 
@@ -54,7 +50,7 @@ public class ScoreTableController {
         scoreTable.getColumns().addAll(fileNameCol, pathCol);
     }
 
-    public void refreshTable( ActionEvent actionEvent ) {
+    public void refreshTable() {
         System.out.println( "Refreshed table" );
         scoreTable.getItems().clear();
 
@@ -74,7 +70,7 @@ public class ScoreTableController {
         for ( int i = 0; i < jsonData.length(); i++ ) {
 
             String nickname = jsonData.getJSONObject( i ).getString( "nickname" );
-            Long score = Long.parseLong( jsonData.getJSONObject( i ).getString( "score" ) ) ;
+            long score = Long.parseLong( jsonData.getJSONObject( i ).getString( "score" ) ) ;
 
             tableData.add( new PlayerData( nickname, score ) );
         }
@@ -83,12 +79,12 @@ public class ScoreTableController {
     public void switchToMainMenu( javafx.event.ActionEvent event ) throws IOException {
 
         FXMLLoader mainMenu = new FXMLLoader( getClass().getResource( "/resources/view/mainMenu.fxml" ) );
-        root = mainMenu.load();
+        Parent root = mainMenu.load();
 
         MenuController menuController = mainMenu.getController() ;
         menuController.setValueDifficultySlider( 1 );
 
-        window = ( Stage ) ( ( Node ) event.getSource() ).getScene().getWindow();
+        Stage window = ( Stage ) ( ( Node ) event.getSource() ).getScene().getWindow();
         window.setScene( new Scene( root ) );
         window.show();
 
