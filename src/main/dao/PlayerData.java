@@ -1,13 +1,12 @@
 package main.dao;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class PlayerData {
 
-    private  SimpleStringProperty nickname;
-    private SimpleLongProperty score;
+    private final SimpleStringProperty nickname;
+    private final SimpleLongProperty score;
 
 
     public PlayerData( String nickname, long score ) {

@@ -20,7 +20,6 @@ public class Snake {
     private final int SQUARE_SIZE;
 
     private final GraphicsContext graphicsContext;
-    private final Random random = new Random();
 
     private Point head;
     private ArrayList<Point> body = new ArrayList<>();
@@ -33,6 +32,7 @@ public class Snake {
         this.SQUARE_SIZE = SQUARE_SIZE;
 
 
+        Random random = new Random();
         int x = random.nextInt( 15 );
         int y = random.nextInt( 9 ) + 1;
 

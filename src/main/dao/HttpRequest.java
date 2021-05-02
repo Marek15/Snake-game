@@ -24,8 +24,8 @@ public class HttpRequest {
             BufferedReader bufferedReader = new BufferedReader( inputStreamReader );
 
             StringBuilder response = new StringBuilder();
-            String line = "";
-            while ( (line=bufferedReader.readLine())!= null ){
+            String line;
+            while ( (line = bufferedReader.readLine())!= null ){
                 response.append( line );
             }
 

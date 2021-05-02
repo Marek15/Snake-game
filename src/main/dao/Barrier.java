@@ -12,7 +12,7 @@ public class Barrier {
         this.numberOfBarriers = numberOfBarriers;
     }
 
-    public void Initialze( int snakeHeadXPosition ) {
+    public void initialize( int snakeHeadXPosition ) {
         Random rn = new Random();
 
         for ( int i = 0; i < numberOfBarriers; i++ ) {

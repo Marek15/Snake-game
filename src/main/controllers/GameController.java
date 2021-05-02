@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.dao.*;
@@ -85,7 +84,7 @@ public class GameController implements Initializable {
         snake = new Snake( SQUARE_SIZE, graphicsContext );
         snake.setCurrentDirection( DOWN );
 
-        barriers.Initialze( snake.getHead().getX() );
+        barriers.initialize( snake.getHead().getX() );
         drawBackground();
         snake.draw();
         generateFood();
