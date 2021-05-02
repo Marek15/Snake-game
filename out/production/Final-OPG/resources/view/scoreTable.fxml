@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../css/custom.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.ScoreTableController">
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0">
+        <Label alignment="CENTER" prefHeight="72.0" prefWidth="548.0" styleClass="title" text="SCORE TABLE">
+            <VBox.margin>
+                <Insets bottom="20.0" top="30.0" />
+            </VBox.margin>
+        </Label>
+        <TableView fx:id="scoreTable" prefHeight="392.0" prefWidth="595.0">
+            <VBox.margin>
+                <Insets left="10.0" right="10.0" />
+            </VBox.margin>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+        <Pane prefHeight="70.0" prefWidth="600.0">
+            <Button layoutX="495.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="55.0" prefWidth="91.0" text="Back" textFill="WHITE" wrapText="true" />
+            <Button layoutX="270.0" layoutY="8.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="55.0" prefWidth="60.0" text="🗘" textFill="WHITE" wrapText="true" />
+        </Pane>
+    </VBox>
+</AnchorPane>

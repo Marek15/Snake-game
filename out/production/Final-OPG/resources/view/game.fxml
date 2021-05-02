@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.10-internal" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
 
     <Canvas fx:id="background" height="600.0" width="600.0" />
-    <Label fx:id="gameScore" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="558.0" prefHeight="72.0" prefWidth="187.0" styleClass="score" stylesheets="@../css/custom.css" text="0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="399.0" />
     <Label fx:id="countdown" alignment="CENTER" layoutY="239.0" prefHeight="72.0" prefWidth="600.0" styleClass="countdown" stylesheets="@../css/custom.css" />
+   <HBox alignment="BOTTOM_LEFT" layoutY="542.0" prefHeight="44.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0">
+      <padding>
+         <Insets left="20.0" right="20.0"/>
+      </padding>
+      <Label fx:id="gameScore" alignment="BOTTOM_LEFT" styleClass="score" stylesheets="@../css/custom.css"
+             HBox.hgrow="ALWAYS"/>
+      <Label fx:id="scoreInfoLabel" alignment="BOTTOM_LEFT" styleClass="scoreInfo" stylesheets="@../css/custom.css">
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="15.0"/>
+         </HBox.margin>
+      </Label>
+   </HBox>
 
 </AnchorPane>

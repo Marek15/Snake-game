@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import main.dao.*;
@@ -64,10 +65,12 @@ public class GameController implements Initializable {
     private Barrier barriers;
     private int difficulty;
     private Integer countdownSeconds = 4;
+    private String nickname;
 
-    public GameController( Stage window, int difficulty ) {
+    public GameController( Stage window, int difficulty, String nickname ) {
         this.window = window;
         this.difficulty = difficulty;
+        this.nickname = nickname;
     }
 
 
@@ -86,7 +89,6 @@ public class GameController implements Initializable {
         drawBackground();
         snake.draw();
         generateFood();
-
 
         TimerTask timerTask = new TimerTask() {
             @Override
@@ -171,7 +173,7 @@ public class GameController implements Initializable {
         }
     }
 
-    public void fillBackgroundAfterSnake( int numberOfBodyParts ) {
+    private void fillBackgroundAfterSnake( int numberOfBodyParts ) {
 
         for ( int i = 1; i <= numberOfBodyParts; i++ ) {
 
@@ -188,7 +190,7 @@ public class GameController implements Initializable {
         }
     }
 
-    public void generateFood() {
+    private void generateFood() {
 
         // we generate random x and y , if it is same as snake head or body or barrier we generate it again
         int foodX, foodY;
@@ -213,7 +215,7 @@ public class GameController implements Initializable {
         food.drawFood();
     }
 
-    public boolean isCrashed() {
+    private boolean isCrashed() {
         // if snake goes out of play field, end game
         if ( snake.getHead().getY() > 14 || snake.getHead().getY() < 0 || snake.getHead().getX() < 0 || snake.getHead().getX() > 14 )
             return true;
@@ -256,6 +258,8 @@ public class GameController implements Initializable {
         menuController.gameOverScoreLabel.setText( score.getScore().toString() );
         menuController.gameOverDifficultyLabel.setText( String.valueOf( difficulty ) );
         menuController.setDifficulty( difficulty );
+        menuController.setNickname( nickname );
+        menuController.savePlayerScore();
 
 
         window.setScene( new Scene( root ) );
