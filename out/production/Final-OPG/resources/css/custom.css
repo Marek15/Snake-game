@@ -13,7 +13,7 @@
     -fx-text-fill: #eee;
 }
 
-.button {
+.button, #nicknameField {
     -fx-background-color: #8e2de2;
     -fx-border-color: #ff6666;
     -fx-padding: 10px;
@@ -22,6 +22,11 @@
 
 .button:hover {
     -fx-text-fill: #ff6666;
+}
+
+#nicknameField:focused {
+    -fx-border-color: #ff6666;
+
 }
 
 .title {
@@ -108,6 +113,73 @@
     -fx-background-color: linear-gradient(to bottom, #8e2de2, #4a00e0);
 }
 
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color: #8e2de2;
+    /*-fx-background-radius: 10px 10px 0px 0px;*/
+    /*-fx-background-insets: 0 11px 0 0;*/
+    -fx-padding: 5px;
+    -fx-border-color: #ff6666;
+    -fx-border-radius: 10px 10px 0px 0px;
+    -fx-font-size: 25px;
+    -fx-font-family: 'Fredoka One', cursive;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #eee;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+/*.table-view .table-cell{*/
+/*    -fx-padding: 2 0 2 10px;*/
+/*    -fx-text-fill: #eeeeee;*/
+/*}*/
+/*.table-row-cell:hover {*/
+/*    -fx-background-color: #8e2de2;*/
+/*    -fx-text-background-color: red;*/
+/*}*/
+/*.table-row-cell:odd{*/
+/*    -fx-background-color: #4a00e0;*/
+/*    -fx-background-insets: 0, 0 0 1 0;*/
+/*    -fx-padding: 0.0em;*/
+/*}*/
+/*.table-row-cell:even{*/
+/*    -fx-background-color: #1dbbdd11;*/
+/*    -fx-background-insets: 0, 0 0 1 0;*/
+/*    -fx-padding: 0.0em;*/
+/*}*/
+
+
+.table-view .virtual-flow .scroll-bar:vertical,
+.table-view .virtual-flow .scroll-bar:vertical .track,
+.table-view .virtual-flow .scroll-bar:vertical .track-background,
+.table-view .virtual-flow .scroll-bar:horizontal,
+.table-view .virtual-flow .scroll-bar:horizontal .track,
+.table-view .virtual-flow .scroll-bar:horizontal .track-background {
+    -fx-background-color: transparent;
+}
+
+
+.table-view .virtual-flow .scroll-bar .increment-button,
+.table-view .virtual-flow .scroll-bar .decrement-button {
+    -fx-opacity: 0;
+    -fx-padding: 2;
+}
+
+.table-view .virtual-flow .scroll-bar:vertical .thumb{
+    -fx-background-color:  #ff6666;
+}
+.table-view .virtual-flow .scroll-bar:horizontal .thumb {
+    -fx-background-color:  #ff6666;
+}
+
+/*just errors msg or notifications*/
 .alert {
     -fx-font-family: 'Fredoka One', cursive;
     -fx-text-fill: red;

@@ -10,20 +10,19 @@
     <Canvas fx:id="background" height="600.0" width="600.0" />
     <Label fx:id="countdown" alignment="CENTER" layoutY="239.0" prefHeight="72.0" prefWidth="600.0" styleClass="countdown" stylesheets="@../css/custom.css" />
    <HBox alignment="BOTTOM_LEFT" layoutY="542.0" prefHeight="44.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0">
-      <children>
-          <Label fx:id="gameScore" alignment="BOTTOM_LEFT" styleClass="score" stylesheets="@../css/custom.css" HBox.hgrow="ALWAYS" />
-         <Label fx:id="scoreInfoLabel" alignment="BOTTOM_LEFT" styleClass="scoreInfo" stylesheets="@../css/custom.css">
-            <opaqueInsets>
-               <Insets />
-            </opaqueInsets>
-            <HBox.margin>
-               <Insets left="15.0" />
-            </HBox.margin>
-         </Label>
-      </children>
       <padding>
-         <Insets left="20.0" right="20.0" />
+         <Insets left="20.0" right="20.0"/>
       </padding>
+      <Label fx:id="gameScore" alignment="BOTTOM_LEFT" styleClass="score" stylesheets="@../css/custom.css"
+             HBox.hgrow="ALWAYS"/>
+      <Label fx:id="scoreInfoLabel" alignment="BOTTOM_LEFT" styleClass="scoreInfo" stylesheets="@../css/custom.css">
+         <opaqueInsets>
+            <Insets/>
+         </opaqueInsets>
+         <HBox.margin>
+            <Insets left="15.0"/>
+         </HBox.margin>
+      </Label>
    </HBox>
 
 </AnchorPane>
