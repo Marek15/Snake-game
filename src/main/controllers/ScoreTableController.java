@@ -4,30 +4,43 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import main.dao.Alert;
 import main.dao.HttpRequest;
 import main.dao.PlayerData;
 import org.json.JSONArray;
 
-
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ScoreTableController {
+public class ScoreTableController implements Initializable {
 
 
     @FXML
     TableView<PlayerData> scoreTable;
 
+    @FXML
+    Label alertLabel;
 
     ObservableList<PlayerData> tableData;
 
-    public void initialize(){
+
+    Alert alert;
+
+    @Override
+    public void initialize( URL url, ResourceBundle resourceBundle ) {
+
+        alert = new Alert( alertLabel );
+
         scoreTable.getItems().clear();
         scoreTable.getColumns().clear();
 
@@ -37,42 +50,70 @@ public class ScoreTableController {
         getData();
 
         //Creating columns
-        TableColumn fileNameCol = new TableColumn("Nickname");
-        fileNameCol.setCellValueFactory(new PropertyValueFactory<>("nickname"));
+        TableColumn nickNameCol = new TableColumn( "Nickname" );
+        nickNameCol.setCellValueFactory( new PropertyValueFactory<>( "nickname" ) );
 
-        TableColumn pathCol = new TableColumn("Score");
-        pathCol.setCellValueFactory(new PropertyValueFactory("score"));
+        TableColumn diffCol = new TableColumn( "Difficulty" );
+        diffCol.setCellValueFactory( new PropertyValueFactory( "difficulty" ) );
+
+        TableColumn scoreCol = new TableColumn( "Score" );
+        scoreCol.setCellValueFactory( new PropertyValueFactory( "score" ) );
 
 
+        nickNameCol.setReorderable( false );
+        scoreCol.setReorderable( false );
+        diffCol.setReorderable( false );
 
-        scoreTable.setItems(tableData);
-//        scoreTable.getSelectionModel().setSelectionMode( SelectionMode.MULTIPLE);
-        scoreTable.getColumns().addAll(fileNameCol, pathCol);
+        diffCol.setSortType( TableColumn.SortType.ASCENDING );
+
+        scoreTable.setItems( tableData );
+        scoreTable.getColumns().addAll( nickNameCol, diffCol, scoreCol );
+
+
     }
 
+
     public void refreshTable() {
-        System.out.println( "Refreshed table" );
+
         scoreTable.getItems().clear();
 
         getData();
 
         scoreTable.setItems( tableData );
 
+        alert.success( "Successfully refreshed!" );
+
     }
 
-    private void getData(){
-        String response = HttpRequest.sendGETRequest( "https://snakeskola.herokuapp.com/api/score");
+    private void getData() {
+
+        String response = HttpRequest.sendGETRequest( "https://snakeskola.herokuapp.com/api/score" );
 
         tableData.clear();
 
-        JSONArray jsonData = new JSONArray(response);
+        if ( response.isEmpty() ) {
 
-        for ( int i = 0; i < jsonData.length(); i++ ) {
+            alert.error( "There is problem with server connection." );
 
-            String nickname = jsonData.getJSONObject( i ).getString( "nickname" );
-            long score = Long.parseLong( jsonData.getJSONObject( i ).getString( "score" ) ) ;
 
-            tableData.add( new PlayerData( nickname, score ) );
+        } else if ( response.equals( "201" ) ) {
+
+            alert.success( "Successfully loaded!" );
+
+        } else {
+            JSONArray jsonData = new JSONArray( response );
+
+            for ( int i = 0; i < jsonData.length(); i++ ) {
+
+                String nickname = jsonData.getJSONObject( i ).getString( "nickname" );
+                long score = Long.parseLong( jsonData.getJSONObject( i ).getString( "score" ) );
+                int difficulty = Integer.parseInt( jsonData.getJSONObject( i ).getString( "difficulty" ) );
+
+
+                tableData.add( new PlayerData( nickname, difficulty, score ) );
+            }
+
+            alert.success( "Successfully loaded!" );
         }
     }
 
@@ -89,4 +130,5 @@ public class ScoreTableController {
         window.show();
 
     }
+
 }

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
+<?import java.lang.String?>
 <AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../css/custom.css"
             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.controllers.MenuController">
@@ -16,7 +15,7 @@
                 <Font name="Arial Black" size="41.0"/>
             </font>
             <VBox.margin>
-                <Insets bottom="80.0"/>
+                <Insets bottom="30.0"/>
             </VBox.margin>
         </Label>
         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="400.0">
@@ -73,5 +72,14 @@
                 <Insets top="30.0"/>
             </VBox.margin>
         </Button>
+        <HBox alignment="CENTER" prefHeight="72.0" prefWidth="600.0">
+            <children>
+                <Label fx:id="gameOverAlertLabel" alignment="CENTER" styleClass="alert" textAlignment="CENTER"
+                       wrapText="true"/>
+            </children>
+            <VBox.margin>
+                <Insets top="40.0"/>
+            </VBox.margin>
+        </HBox>
     </VBox>
 </AnchorPane>

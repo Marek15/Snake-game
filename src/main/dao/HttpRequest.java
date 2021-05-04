@@ -10,11 +10,8 @@ import java.nio.charset.StandardCharsets;
 public class HttpRequest {
 
 
-
-    public HttpRequest() {
-    }
-
     public static String sendGETRequest( String path){
+
         try{
             URL url = new URL( path );
             HttpURLConnection httpURLConnection = (HttpURLConnection ) url.openConnection();
@@ -25,44 +22,45 @@ public class HttpRequest {
 
             StringBuilder response = new StringBuilder();
             String line;
-            while ( (line = bufferedReader.readLine())!= null ){
+            while ( ( line = bufferedReader.readLine() ) != null ) {
                 response.append( line );
             }
 
             bufferedReader.close();
 
-            System.out.println("GET response code => " + httpURLConnection.getResponseCode());
+
+            if ( response.isEmpty() )
+                response.append( "201" );
 
             return response.toString();
         }
         catch ( Exception e) {
-            System.out.println("GET error " + e);
+            return "";
         }
-        return "";
     }
 
-    public static void sendPOSTRequest( String path, String postData ){
-        try{
+    public static int sendPOSTRequest( String path, String postData ) {
+        try {
 
             URL url = new URL( path );
-            HttpURLConnection httpURLConnection = (HttpURLConnection ) url.openConnection();
+            HttpURLConnection httpURLConnection = ( HttpURLConnection ) url.openConnection();
             httpURLConnection.setRequestMethod( "POST" );
             httpURLConnection.setDoOutput( true );
 
 
-
             // Adding post data
             OutputStream outputStream = httpURLConnection.getOutputStream();
-            outputStream.write( postData.getBytes( StandardCharsets.UTF_8 ));
+            outputStream.write( postData.getBytes( StandardCharsets.UTF_8 ) );
             outputStream.flush();
             outputStream.close();
 
+            System.out.println( "POST response code => " + httpURLConnection.getResponseCode() );
 
-            System.out.println("POST response code => " + httpURLConnection.getResponseCode());
+            return httpURLConnection.getResponseCode();
 
         }
         catch ( Exception e) {
-            System.out.println("POST error "+e);
+            return 500;
         }
     }
 

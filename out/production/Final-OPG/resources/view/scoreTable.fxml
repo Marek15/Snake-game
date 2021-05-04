@@ -22,6 +22,7 @@
         <Pane prefHeight="70.0" prefWidth="600.0">
             <Button layoutX="495.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="55.0" prefWidth="91.0" text="Back" textFill="WHITE" wrapText="true" />
             <Button layoutX="270.0" layoutY="8.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="55.0" prefWidth="60.0" text="🗘" textFill="WHITE" wrapText="true" />
+         <Label fx:id="alertLabel" layoutX="9.0" layoutY="4.0" prefHeight="62.0" prefWidth="247.0" styleClass="alert" stylesheets="@../css/custom.css" wrapText="true" />
         </Pane>
     </VBox>
 </AnchorPane>
