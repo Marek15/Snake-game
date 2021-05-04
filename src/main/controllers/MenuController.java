@@ -80,18 +80,18 @@ public class MenuController {
         Alert alert = new Alert( gameOverAlertLabel );
 
         if ( !nickname.isEmpty() ) {
+
             String postData = "nickname=" + nickname + "&score=" + gameOverScoreLabel.getText().trim() + "&difficulty=" + difficulty;
-            System.out.println( "POST data => " + postData );
+
             int responseCode = HttpRequest.sendPOSTRequest( "https://snakeskola.herokuapp.com/api/score", postData );
-            System.out.println( responseCode );
-            if ( responseCode == 201 ) {
+
+            if ( responseCode == 201 )
                 alert.success( "Your score was saved!" );
-            } else {
+            else
                 alert.error( "Your score wasn't saved, because there is problem with server connection." );
-            }
-        } else {
+
+        } else
             alert.warn( "Your score wasn't saved, because you didn't enter nickname." );
-        }
     }
 
     public void switchToGame( ActionEvent event ) throws Exception {
