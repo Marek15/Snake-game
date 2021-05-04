@@ -11,7 +11,7 @@ public class PlayerData {
     private final SimpleIntegerProperty difficulty;
 
 
-    public PlayerData( String nickname, int difficulty, long score ) {
+    public PlayerData( String nickname, long score, int difficulty ) {
         this.nickname = new SimpleStringProperty( nickname );
         this.score = new SimpleLongProperty( score );
         this.difficulty = new SimpleIntegerProperty( difficulty );

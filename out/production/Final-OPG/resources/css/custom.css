@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'Fredoka One';
-    src: url('/resources/css/fonts/FredokaOne-Regular.ttf')  format('truetype');
+    src: url('/resources/css/fonts/FredokaOne-Regular.ttf') format('truetype');
 }
 
 .rounded, .button {
@@ -129,7 +129,7 @@
     -fx-background-color: transparent;
 }
 
-.table-view .column-header-background{
+.table-view .column-header-background {
     -fx-background-color: #4a00e0;
     -fx-background-radius: 10px 10px 0px 0px;
     -fx-background-insets: 0 11px 0 0;
@@ -165,7 +165,7 @@
 /*    -fx-padding: 0.0em;*/
 /*}*/
 
-.highlited{
+.highlited {
     -fx-background-color: #1dbbdd;
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
@@ -205,7 +205,7 @@
     -fx-font-size: 20px;
 }
 
-.alertRed{
+.alertRed {
     -fx-text-fill: #ee2222;
 }
 

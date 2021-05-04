@@ -54,8 +54,6 @@ public class HttpRequest {
             outputStream.flush();
             outputStream.close();
 
-            System.out.println( "POST response code => " + httpURLConnection.getResponseCode() );
-
             return httpURLConnection.getResponseCode();
 
         }

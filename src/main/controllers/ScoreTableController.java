@@ -64,10 +64,13 @@ public class ScoreTableController implements Initializable {
         scoreCol.setReorderable( false );
         diffCol.setReorderable( false );
 
-        diffCol.setSortType( TableColumn.SortType.ASCENDING );
 
         scoreTable.setItems( tableData );
         scoreTable.getColumns().addAll( nickNameCol, diffCol, scoreCol );
+
+        diffCol.setSortType( TableColumn.SortType.DESCENDING );
+        scoreTable.getSortOrder().add( diffCol );
+        scoreTable.sort();
 
 
     }
@@ -80,6 +83,8 @@ public class ScoreTableController implements Initializable {
         getData();
 
         scoreTable.setItems( tableData );
+
+        scoreTable.sort();
 
         alert.success( "Successfully refreshed!" );
 
@@ -110,7 +115,7 @@ public class ScoreTableController implements Initializable {
                 int difficulty = Integer.parseInt( jsonData.getJSONObject( i ).getString( "difficulty" ) );
 
 
-                tableData.add( new PlayerData( nickname, difficulty, score ) );
+                tableData.add( new PlayerData( nickname, score, difficulty ) );
             }
 
             alert.success( "Successfully loaded!" );
