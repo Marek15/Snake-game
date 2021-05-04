@@ -1,5 +1,6 @@
 package main.dao;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -7,11 +8,13 @@ public class PlayerData {
 
     private final SimpleStringProperty nickname;
     private final SimpleLongProperty score;
+    private final SimpleIntegerProperty difficulty;
 
 
-    public PlayerData( String nickname, long score ) {
-        this.nickname = new SimpleStringProperty(nickname);
-        this.score = new SimpleLongProperty(score);
+    public PlayerData( String nickname, int difficulty, long score ) {
+        this.nickname = new SimpleStringProperty( nickname );
+        this.score = new SimpleLongProperty( score );
+        this.difficulty = new SimpleIntegerProperty( difficulty );
     }
 
     public String getNickname() {
@@ -38,5 +41,15 @@ public class PlayerData {
         this.score.set( score );
     }
 
+    public int getDifficulty() {
+        return difficulty.get();
+    }
 
+    public void setDifficulty( int difficulty ) {
+        this.difficulty.set( difficulty );
+    }
+
+    public SimpleIntegerProperty difficultyProperty() {
+        return difficulty;
+    }
 }

@@ -6,72 +6,77 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../css/custom.css"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="main.controllers.MenuController">
-    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0"
-          AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="menuBackground" stylesheets="@../css/custom.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.MenuController">
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <Label prefHeight="85.0" prefWidth="458.0" styleClass="title" text="GAME OVER">
             <font>
-                <Font name="Arial Black" size="41.0"/>
+                <Font name="Arial Black" size="41.0" />
             </font>
             <VBox.margin>
-                <Insets bottom="80.0"/>
+                <Insets bottom="30.0" />
             </VBox.margin>
         </Label>
         <HBox alignment="CENTER" prefHeight="39.0" prefWidth="400.0">
             <VBox.margin>
-                <Insets/>
+                <Insets />
             </VBox.margin>
             <Label text="Score : ">
                 <font>
-                    <Font name="Arial Black" size="15.0"/>
+                    <Font name="Arial Black" size="15.0" />
                 </font>
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
                 <styleClass>
-                    <String fx:value="subTitle"/>
-                    <String fx:value="biggerSubTittle"/>
+                    <String fx:value="subTitle" />
+                    <String fx:value="biggerSubTittle" />
                 </styleClass>
             </Label>
             <Label fx:id="gameOverScoreLabel">
                 <font>
-                    <Font name="Arial" size="15.0"/>
+                    <Font name="Arial" size="15.0" />
                 </font>
                 <styleClass>
-                    <String fx:value="subTitle"/>
-                    <String fx:value="biggerSubTittle"/>
+                    <String fx:value="subTitle" />
+                    <String fx:value="biggerSubTittle" />
                 </styleClass>
             </Label>
         </HBox>
         <HBox alignment="CENTER" layoutX="10.0" layoutY="286.0" prefHeight="39.0" prefWidth="400.0">
             <VBox.margin>
-                <Insets bottom="30.0"/>
+                <Insets bottom="30.0" />
             </VBox.margin>
             <Label styleClass="subTitle" text="Difficulty : ">
                 <font>
-                    <Font name="Arial Black" size="15.0"/>
+                    <Font name="Arial Black" size="15.0" />
                 </font>
                 <HBox.margin>
-                    <Insets/>
+                    <Insets />
                 </HBox.margin>
             </Label>
             <Label fx:id="gameOverDifficultyLabel" styleClass="subTitle">
                 <font>
-                    <Font name="Arial" size="15.0"/>
+                    <Font name="Arial" size="15.0" />
                 </font>
             </Label>
         </HBox>
         <Button mnemonicParsing="false" onAction="#switchToGame" text="Restart Game">
             <VBox.margin>
-                <Insets top="30.0"/>
+                <Insets top="30.0" />
             </VBox.margin>
         </Button>
         <Button mnemonicParsing="false" onAction="#switchToMainMenu" text="Back to Main menu">
             <VBox.margin>
-                <Insets top="30.0"/>
+                <Insets top="30.0" />
             </VBox.margin>
         </Button>
+      <HBox alignment="CENTER" prefHeight="72.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="gameOverAlertLabel" alignment="CENTER" styleClass="alert" textAlignment="CENTER" wrapText="true" />
+         </children>
+         <VBox.margin>
+            <Insets top="40.0" />
+         </VBox.margin>
+      </HBox>
     </VBox>
 </AnchorPane>

@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
+@font-face {
+    font-family: 'Fredoka One';
+    src: url('/resources/css/fonts/FredokaOne-Regular.ttf')  format('truetype');
+}
 
 .rounded, .button {
     -fx-border-width: 2px;
@@ -21,7 +24,7 @@
 }
 
 .button:hover {
-    -fx-text-fill: #ff6666;
+    -fx-text-fill: #66ff66;
 }
 
 #nicknameField:focused {
@@ -115,15 +118,22 @@
 
 .table-view {
     -fx-background-color: transparent;
+
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .corner {
+    -fx-background-color: transparent;
 }
 
 .table-view .column-header-background{
-    -fx-background-color: #8e2de2;
-    /*-fx-background-radius: 10px 10px 0px 0px;*/
-    /*-fx-background-insets: 0 11px 0 0;*/
-    -fx-padding: 5px;
-    -fx-border-color: #ff6666;
-    -fx-border-radius: 10px 10px 0px 0px;
+    -fx-background-color: #4a00e0;
+    -fx-background-radius: 10px 10px 0px 0px;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
     -fx-font-size: 25px;
     -fx-font-family: 'Fredoka One', cursive;
 }
@@ -155,6 +165,12 @@
 /*    -fx-padding: 0.0em;*/
 /*}*/
 
+.highlited{
+    -fx-background-color: #1dbbdd;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+
 
 .table-view .virtual-flow .scroll-bar:vertical,
 .table-view .virtual-flow .scroll-bar:vertical .track,
@@ -182,9 +198,21 @@
 /*just errors msg or notifications*/
 .alert {
     -fx-font-family: 'Fredoka One', cursive;
-    -fx-text-fill: red;
+
 }
 
 .alert .text {
     -fx-font-size: 20px;
+}
+
+.alertRed{
+    -fx-text-fill: #ee2222;
+}
+
+.alertGreen {
+    -fx-text-fill: #22ee22;
+}
+
+.alertWarn {
+    -fx-text-fill: #eeee22;
 }
