@@ -1,5 +1,6 @@
 package main.controllers;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -17,10 +19,11 @@ import main.dao.Alert;
 import main.dao.HttpRequest;
 import main.dao.PlayerData;
 import org.json.JSONArray;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ScoreTableController implements Initializable {
 
@@ -30,6 +33,9 @@ public class ScoreTableController implements Initializable {
 
     @FXML
     Label alertLabel;
+
+    @FXML
+    Button refreshTableBtn;
 
     ObservableList<PlayerData> tableData;
 
@@ -72,11 +78,12 @@ public class ScoreTableController implements Initializable {
         scoreTable.getSortOrder().add( diffCol );
         scoreTable.sort();
 
-
     }
 
 
-    public void refreshTable() {
+    public void refreshTable( ) {
+
+        refreshTableBtn.setDisable( true );
 
         scoreTable.getItems().clear();
 
@@ -85,6 +92,16 @@ public class ScoreTableController implements Initializable {
         scoreTable.setItems( tableData );
 
         scoreTable.sort();
+
+
+        Timer timer = new Timer();
+
+        timer.schedule( new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater( () -> refreshTableBtn.setDisable( false ) );
+            }
+        }, 10000 );
 
         alert.success( "Successfully refreshed!" );
 
